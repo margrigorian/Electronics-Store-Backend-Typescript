@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import z from "zod";
-import getResponseTemplate from "../lib/responseTemplate.js";
+import getResponseTemplate, { IResponse } from "../lib/responseTemplate.js";
 
 export function validate(action: string) {
-  return (req: Request, res: Response, next: NextFunction) => {
+  return (req: Request, res: Response<IResponse>, next: NextFunction) => {
     interface SchemaMap {
       [action: string]: z.ZodSchema; // Dynamic property names with string keys for actions
     }

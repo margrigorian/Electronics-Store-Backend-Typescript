@@ -1,4 +1,4 @@
-interface IResponse {
+export interface IResponse {
   data: null | object;
   error: null | Message;
 }
