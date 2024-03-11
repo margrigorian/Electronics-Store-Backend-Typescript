@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 import getResponseTemplate, { IResponse } from "../lib/responseTemplate.js";
-import { checkUser, addNewUser } from "../servicing/authService.js";
+import { checkUser, addNewUser, getToken } from "../servicing/authService.js";
 
 export async function userRegistrationController(req: Request, res: Response<IResponse>) {
   try {
-    let message;
+    let message: string;
     const response = getResponseTemplate();
 
     const { username, email, password } = req.body;
@@ -26,7 +26,41 @@ export async function userRegistrationController(req: Request, res: Response<IRe
     };
     return res.status(406).json(response);
   } catch (err) {
-    const message = "500 Server Error";
+    const message: string = "500 Server Error";
+    const response = getResponseTemplate();
+    response.error = {
+      message
+    };
+    return res.status(500).json(response);
+  }
+}
+
+export async function userLoginController(req: Request, res: Response<IResponse>) {
+  try {
+    let message: string;
+    const response = getResponseTemplate();
+
+    const { email, password } = req.body;
+    const user = await checkUser(email, password);
+
+    if (user) {
+      // авторизация прошла успешно, выдаем токен
+      const token = getToken(email);
+      message = "Successful authorization! You can continue your session";
+      response.data = {
+        message,
+        user: { ...user, token }
+      };
+      return res.status(201).json(response);
+    }
+
+    message = "The user's email address or passward is invalid";
+    response.error = {
+      message
+    };
+    return res.status(406).json(response);
+  } catch (err) {
+    const message: string = "500 Server Error";
     const response = getResponseTemplate();
     response.error = {
       message

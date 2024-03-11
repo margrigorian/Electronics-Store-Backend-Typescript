@@ -13,6 +13,10 @@ export function validate(action: string) {
         username: z.string().min(1),
         email: z.string().email(),
         password: z.string().min(5)
+      }),
+      authorization: z.object({
+        email: z.string().email(),
+        password: z.string().min(5)
       })
     };
 
@@ -23,7 +27,7 @@ export function validate(action: string) {
       return;
     }
 
-    const message = "The sent data is incorrect";
+    const message: string = "The sent data is incorrect";
     const response = getResponseTemplate();
     response.error = {
       message

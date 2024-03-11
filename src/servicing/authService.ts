@@ -1,11 +1,13 @@
 import bcript from "bcryptjs";
+import jwt from "jsonwebtoken";
 import { getUser, addUser } from "../db/slices/users.js";
+import { secret } from "../lib/config.js";
 import { User } from "../lib/types.js";
 
 export async function checkUser(email: string, password: string): Promise<User | false | null> {
   // будет исп. и при регистрации и при логине
   const user = await getUser(email); // будет проходить проверка в базе данных
-  let areSamePassword = undefined;
+  let areSamePassword: undefined | boolean = undefined;
 
   if (user && user.password) {
     areSamePassword = await bcript.compare(password, user.password); // проверка соответствия пароля
@@ -33,4 +35,13 @@ export async function addNewUser(username: string, email: string, password: stri
   }
 
   return newUser;
+}
+
+export function getToken(email: string) {
+  const payload = {
+    email
+  };
+
+  const token = jwt.sign(payload, secret, { expiresIn: "12h" });
+  return token;
 }

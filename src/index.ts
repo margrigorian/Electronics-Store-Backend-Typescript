@@ -3,7 +3,7 @@ import cors from "cors";
 import authRouter from "./routing/authRouter.js";
 
 const app: Application = express();
-const PORT = 3001;
+const PORT: number = 3001;
 
 app.use(cors());
 app.use(express.json());
