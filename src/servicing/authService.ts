@@ -2,9 +2,9 @@ import bcript from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { getUser, addUser } from "../db/slices/users.js";
 import { secret } from "../lib/config.js";
-import { User } from "../lib/types.js";
+import { IUser } from "../lib/types.js";
 
-export async function checkUser(email: string, password: string): Promise<User | false | null> {
+export async function checkUser(email: string, password: string): Promise<IUser | false | null> {
   // будет исп. и при регистрации и при логине
   const user = await getUser(email); // будет проходить проверка в базе данных
   let areSamePassword: undefined | boolean = undefined;
@@ -25,7 +25,7 @@ export async function checkUser(email: string, password: string): Promise<User |
   }
 }
 
-export async function addNewUser(username: string, email: string, password: string): Promise<User | undefined> {
+export async function addNewUser(username: string, email: string, password: string): Promise<IUser | undefined> {
   const hashpassword = await bcript.hash(password, 10);
   const newUser = await addUser(username, email, hashpassword);
   // проверка, требуемая типизацией
