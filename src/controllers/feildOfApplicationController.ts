@@ -22,13 +22,13 @@ export async function feildOfApplicationController(req: Request, res: Response<I
         };
         return res.status(200).json(response);
       }
+    } else {
+      const message: string = "404 NOT FOUND"; // категории не найдены
+      response.error = {
+        message
+      };
+      return res.status(404).json(response);
     }
-
-    const message: string = "404 NOT FOUND"; // категории не найдены
-    response.error = {
-      message
-    };
-    return res.status(404).json(response);
   } catch (err) {
     const message: string = "500 Server Error";
     const response = getResponseTemplate();
