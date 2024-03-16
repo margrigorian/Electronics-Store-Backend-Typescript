@@ -21,6 +21,16 @@ export function queriesParamsValidate(action: string) {
         page: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional(),
         limit: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional()
         // лишние query-параметры не препятсвуют запросу
+      }),
+      searchQueries: z.object({
+        q: z.string().optional(),
+        subcategory: z.string().optional(),
+        // допустила number, "", undefined; в случае NaN случится ошибка (например, при "text")
+        minPrice: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional(),
+        maxPrice: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional(),
+        order: z.union([z.literal("asc"), z.literal("desc"), z.literal("")]).optional(),
+        page: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional(),
+        limit: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional()
       })
     };
 

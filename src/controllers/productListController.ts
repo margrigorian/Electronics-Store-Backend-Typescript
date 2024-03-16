@@ -9,20 +9,20 @@ export async function productListController(req: Request, res: Response<IRespons
     const { category } = req.params;
     const { subcategory, minPrice, maxPrice, order, page, limit } = req.query; // может быть "", undefined
     // сразу передача в db функцию query-параметров выдаст ошибку из-за типизации
+    let productsSubcategory: string;
     let min: number | string;
     let max: number | string;
+    let productsOrder: string;
     let pageNumber: number;
     let productsLimit: number;
-    let productsSubcategory: string;
-    let productsOrder: string;
 
-    minPrice ? (min = +minPrice) : (min = ""); // преобразование обязательно, так как параметры в db типизируются
-    maxPrice ? (max = +maxPrice) : (max = ""); // типизация по-умолчанию req.query сложнее и не подходит
-    page ? (pageNumber = +page) : (pageNumber = 1);
-    limit ? (productsLimit = +limit) : (productsLimit = 5); // если отправить в значении string, будет ошибка в запросе products_list (db)
     // без проверки не работает присваивание, проблема с типизацией
     typeof subcategory === "string" ? (productsSubcategory = subcategory) : (productsSubcategory = "");
+    minPrice ? (min = +minPrice) : (min = ""); // преобразование обязательно, так как параметры в db типизируются
+    maxPrice ? (max = +maxPrice) : (max = ""); // типизация по-умолчанию req.query сложнее и не подходит
     typeof order === "string" ? (productsOrder = order) : (productsOrder = "");
+    page ? (pageNumber = +page) : (pageNumber = 1);
+    limit ? (productsLimit = +limit) : (productsLimit = 5); // если отправить в значении string, будет ошибка в запросе products_list (db)
 
     const data = await getProductList("", category, productsSubcategory, min, max, productsOrder, pageNumber, productsLimit);
 
