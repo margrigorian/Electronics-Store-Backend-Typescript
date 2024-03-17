@@ -1,6 +1,15 @@
 import db from "../db.js";
 import { FieldPacket, RowDataPacket } from "mysql2/promise";
-import { ICategory, ICategoryProduct, ICategories, IProducts, IProductListInfo } from "../../lib/types.js";
+import { getAvgRating, getCommentsWithRates, getRates } from "./evaluation.js";
+import {
+  ICategory,
+  ICategoryProduct,
+  ICategories,
+  IProduct,
+  IProductWithRate,
+  IProductListInfo,
+  IProductWithCommentsAndRates
+} from "../../lib/types.js";
 
 const url: string = "http://localhost:3001/images/";
 
@@ -128,7 +137,7 @@ export async function getProductList(
   params.push((page - 1) * limit, limit);
 
   // без category в select выдает ошибку, так как атрибут исп. в фильтрах
-  const products_list: [(RowDataPacket & IProducts)[], FieldPacket[]] = await db.query(
+  const products_list: [(RowDataPacket & IProductWithRate)[], FieldPacket[]] = await db.query(
     `
           SELECT id, title, description, image, price, quantity, AVG(rate) AS rate, feildOfApplication, category, subcategory FROM products 
           LEFT JOIN product_rating ON products.id = product_rating.product_id
@@ -149,7 +158,7 @@ export async function getProductList(
   if (products_list[0].length > 0) {
     // Корректна ли проверка? Возможна ли ошибка priceValues при пустом списке?
 
-    const products: IProducts[] = products_list[0].map(el => {
+    const products: IProductWithRate[] = products_list[0].map(el => {
       el.image = url + el.image;
       return el;
     });
@@ -160,6 +169,28 @@ export async function getProductList(
       priceMin: priceValues[0][0].min,
       priceMax: priceValues[0][0].max,
       length: productsQuantity[0].length
+    };
+  } else {
+    return null;
+  }
+}
+
+export async function getProduct(id: number): Promise<{ product: IProductWithCommentsAndRates } | null> {
+  const data: [(RowDataPacket & IProduct)[], FieldPacket[]] = await db.query(`SELECT * FROM products WHERE id = "${id}"`);
+  // console.log(typeof data[0][0].quantity);
+  if (data[0].length > 0) {
+    // товар с указанным id найден
+    const currentProduct = data[0][0];
+    // коректируем путь к изображению
+    currentProduct.image = url + currentProduct.image;
+
+    const avgRating = await getAvgRating(id);
+    const comments = await getCommentsWithRates(id);
+    const rates = await getRates(id);
+    const product = { ...currentProduct, avgRating, comments, rates };
+
+    return {
+      product
     };
   } else {
     return null;

@@ -11,8 +11,7 @@ export function queriesParamsValidate(action: string) {
 
     const schemas: SchemaMap = {
       productListQueries: z.object({
-        // .optional предполпгает undefined, NaN и null - нет
-        category: z.string().optional(),
+        // .optional предполагает undefined, NaN и null - нет
         subcategory: z.string().optional(),
         // допустила number, "", undefined; в случае NaN случится ошибка (например, при "text")
         minPrice: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional(),
@@ -31,21 +30,22 @@ export function queriesParamsValidate(action: string) {
         order: z.union([z.literal("asc"), z.literal("desc"), z.literal("")]).optional(),
         page: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional(),
         limit: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional()
+      }),
+      productIdParam: z.object({
+        productId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()) // проверка id из params
       })
     };
 
     let queryParams; // оставляем any, так как типизация будет проходить через zod
 
-    // чтобы не использовать типизацию через Request<{category : string | undefined}>
-    if (req.params) {
-      const { category } = req.params; // всегда string, только при наличии req.params сработает router
-      queryParams = { ...req.query, category };
+    if (req.params.id) {
+      const { id } = req.params; // для getProductController и postCommentController
+      req.body = { ...req.body, productId: id };
+
+      queryParams = { ...req.query, productId: id };
     } else {
       queryParams = req.query;
     }
-
-    // при других случаях валидации category будет игнорироваться в schemas
-    // const queryParams: IProductQueriesParams = { ...req.query, category };
 
     // НЕ ТИПИЗИРУЕТСЯ data, КАК ПРАВИЛЬНО?
     // type ParseSchema = typeof schemas; // не создает прототип с ключами, придется все из schemas прописывать в SchemaMap

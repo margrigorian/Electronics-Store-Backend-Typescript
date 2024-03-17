@@ -39,23 +39,49 @@ export interface ICategories extends ICategory {
 
 // For product list
 
-export interface IProducts {
+export interface IProduct {
   id: number;
   title: string;
   description: string;
   image: string;
   price: number;
   quantity: number;
-  rate: number;
   feildOfApplication: string;
   category: string;
   subcategory: string;
 }
 
+interface IAvgRate {
+  rate: string | null;
+}
+
+export interface IProductWithRate extends IProduct, IAvgRate {}
+
 export interface IProductListInfo {
-  products: IProducts[];
+  products: IProduct[];
   subcategories: string[];
   priceMin: number;
   priceMax: number;
   length: number;
+}
+
+// for product
+
+export interface ICommentsWithRates {
+  comment_id: number;
+  comment: string;
+  rate: number;
+  user_id: number;
+  username: string;
+}
+
+export interface IRates {
+  user_id: number;
+  rate: number;
+}
+
+export interface IProductWithCommentsAndRates extends IProduct {
+  avgRating: number | null;
+  comments: ICommentsWithRates[];
+  rates: IRates[];
 }

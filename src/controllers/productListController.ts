@@ -7,6 +7,7 @@ export async function productListController(req: Request, res: Response<IRespons
     // Request<IProductQueriesParams> не помогает, при измнении ключей будет ошибка, они считываются как any
 
     const { category } = req.params;
+
     const { subcategory, minPrice, maxPrice, order, page, limit } = req.query; // может быть "", undefined
     // сразу передача в db функцию query-параметров выдаст ошибку из-за типизации
     let productsSubcategory: string;
