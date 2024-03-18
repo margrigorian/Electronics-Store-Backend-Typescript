@@ -85,3 +85,18 @@ export interface IProductWithCommentsAndRates extends IProduct {
   comments: ICommentsWithRates[];
   rates: IRates[];
 }
+
+// for post rate or comment
+
+export interface IProductComment {
+  product_id: number;
+  comment_id: number;
+  comment: string;
+  user_id: number;
+}
+
+export interface IProductRating {
+  product_id: number;
+  rate: number;
+  user_id: number;
+}

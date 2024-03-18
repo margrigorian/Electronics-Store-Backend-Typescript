@@ -1,5 +1,5 @@
 import bcript from "bcryptjs";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { getUser, addUser } from "../db/slices/users.js";
 import { secret } from "../lib/config.js";
 import { IUser } from "../lib/types.js";
@@ -25,7 +25,7 @@ export async function checkUser(email: string, password: string): Promise<IUser 
   }
 }
 
-export async function addNewUser(username: string, email: string, password: string): Promise<IUser | undefined> {
+export async function addNewUser(username: string, email: string, password: string): Promise<IUser | null> {
   const hashpassword = await bcript.hash(password, 10);
   const newUser = await addUser(username, email, hashpassword);
   // проверка, требуемая типизацией
@@ -44,4 +44,23 @@ export function getToken(email: string) {
 
   const token = jwt.sign(payload, secret, { expiresIn: "12h" });
   return token;
+}
+
+export async function checkToken(token: string): Promise<IUser | null> {
+  try {
+    const decodedToken: string | JwtPayload = jwt.verify(token, secret); // при ошибке пробрасывает throw
+
+    if (typeof decodedToken === "object") {
+      const user = await getUser(decodedToken.email); // проверка наличия юзера с таким email, возращ. объект c пользователем
+
+      if (user) {
+        // пользователь найден
+        return user;
+      }
+    }
+
+    return null;
+  } catch (err) {
+    return null; // в случае ошибки jwt.verify
+  }
 }
