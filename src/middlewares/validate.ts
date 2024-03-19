@@ -21,6 +21,11 @@ export function validate(action: string) {
         }),
         postComment: z.object({
           comment: z.string().min(2).optional()
+        }),
+        putComment: z.object({
+          productId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()), // проверка id из params
+          commentId: z.number().positive().optional(),
+          comment: z.string().min(2).optional()
         })
       };
 

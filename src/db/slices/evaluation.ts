@@ -36,6 +36,14 @@ export async function postComment(productId: number, comment: string, userId: nu
   return postedComment;
 }
 
+export async function putComment(commentId: number, comment: string): Promise<{ comment: IProductComment } | null> {
+  // обновляем
+  await db.query(`UPDATE product_comments SET comment = "${comment}" WHERE comment_id = "${commentId}"`);
+  // запрашиваем обновленный комментарий
+  const updatedComment = await getComment(commentId);
+  return updatedComment;
+}
+
 async function getLastCommentId(): Promise<number | null> {
   const lastId: [(RowDataPacket & { comment_id: number })[], FieldPacket[]] = await db.query(
     "SELECT comment_id FROM product_comments ORDER BY comment_id DESC LIMIT 1"
@@ -116,4 +124,17 @@ export async function postRate(productId: number, rate: number, userId: number):
   }
 
   return null;
+}
+
+export async function putRate(productId: number, rate: number, userId: number): Promise<{ rate: IProductRating } | null> {
+  // дублирование можно останавливать на front
+  await db.query(
+    `
+          UPDATE product_rating SET rate = "${rate}" 
+          WHERE product_id = "${productId}" AND user_id = "${userId}"
+      `
+  );
+  // запрашиваем обновленный объект с информацией об оценке
+  const updatedRate = await getUserRateOfProduct(productId, userId);
+  return updatedRate;
 }
