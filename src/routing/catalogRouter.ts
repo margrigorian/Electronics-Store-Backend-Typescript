@@ -8,6 +8,7 @@ import { searchController } from "../controllers/searchController.js";
 import { productController } from "../controllers/productController.js";
 import { postCommentAndRateController } from "../controllers/postCommentAndRateController.js";
 import { putCommentAndRateController } from "../controllers/putCommentAndRateController.js";
+import { deleteCommentController } from "../controllers/deleteCommentController.js";
 
 const router: Router = experss.Router();
 
@@ -18,5 +19,6 @@ router.get("/search", queriesParamsValidate("searchQueries"), searchController);
 router.get("/product/:id", queriesParamsValidate("productIdParam"), productController);
 router.post("/product/:id", authenticate(), queriesParamsValidate("rateQuery"), validate("postComment"), postCommentAndRateController);
 router.put("/product/:id", authenticate(), queriesParamsValidate("rateQuery"), validate("putComment"), putCommentAndRateController);
+router.delete("/product/:id", authenticate(), queriesParamsValidate("deleteComment"), deleteCommentController);
 
 export default router;

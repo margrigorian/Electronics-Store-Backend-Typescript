@@ -44,6 +44,10 @@ export async function putComment(commentId: number, comment: string): Promise<{ 
   return updatedComment;
 }
 
+export async function deleteComment(commentId: number) {
+  await db.query(`DELETE FROM product_comments WHERE comment_id = "${commentId}"`);
+}
+
 async function getLastCommentId(): Promise<number | null> {
   const lastId: [(RowDataPacket & { comment_id: number })[], FieldPacket[]] = await db.query(
     "SELECT comment_id FROM product_comments ORDER BY comment_id DESC LIMIT 1"

@@ -38,6 +38,10 @@ export function queriesParamsValidate(action: string) {
         rateQuery: z.object({
           productId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()), // проверка id из params
           rate: z.preprocess(a => parseInt(String(a), 10), z.number().min(1).max(5)).optional()
+        }),
+        deleteComment: z.object({
+          productId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()), // проверка id из params
+          commentId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()) // отправлено через req.body
         })
       };
 
