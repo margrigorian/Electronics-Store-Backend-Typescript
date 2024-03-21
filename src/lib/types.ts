@@ -58,7 +58,7 @@ interface IAvgRate {
 export interface IProductWithRate extends IProduct, IAvgRate {}
 
 export interface IProductListInfo {
-  products: IProduct[];
+  products: IProduct[] | IProductWithCommentsAndRates[]; // второе для allProductsController
   subcategories: string[];
   priceMin: number;
   priceMax: number;
@@ -83,7 +83,7 @@ export interface IRates {
 export interface IProductWithCommentsAndRates extends IProduct {
   avgRating: number | null;
   comments: ICommentsWithRates[];
-  rates: IRates[];
+  rates?: IRates[];
 }
 
 // for post rate or comment
@@ -99,4 +99,30 @@ export interface IProductRating {
   product_id: number;
   rate: number;
   user_id: number;
+}
+
+// product structure for admin
+
+export interface IFeildOfApplicationStructure {
+  feildOfApplication: string;
+}
+
+export interface ICategoriesStructure {
+  category: string;
+  fromFeildOfApplication: string;
+}
+
+export interface ISubategoriesStructure {
+  subcategory: string;
+  fromCategory: string;
+}
+
+export interface ITotalProductsStructure {
+  feildsOfApplication: IFeildOfApplicationStructure[];
+  categories: ICategoriesStructure[];
+  subcategories: ISubategoriesStructure[];
+}
+
+export interface IProductsWithStructure extends IProductListInfo {
+  structure: ITotalProductsStructure;
 }

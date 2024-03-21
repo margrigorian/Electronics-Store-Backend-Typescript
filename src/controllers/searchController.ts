@@ -6,7 +6,7 @@ export async function searchController(req: Request, res: Response<IResponse>) {
   try {
     const { q, subcategory, minPrice, maxPrice, order, page, limit } = req.query; // может быть "", undefined
 
-    // сразу передача в db функцию query-параметров выдаст ошибку из-за типизации
+    // сразу передача в db функцию query-параметров выдаст ошибку из-за несоответствия типов
     let search: string;
     let productsSubcategory: string;
     let min: number | string;

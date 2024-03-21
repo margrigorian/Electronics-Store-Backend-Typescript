@@ -1,6 +1,6 @@
 import db from "../db.js";
 import { FieldPacket, RowDataPacket } from "mysql2/promise";
-import { ICommentsWithRates, IRates, IProductComment, IProductRating } from "../../lib/types.js";
+import { ICommentsWithRates, IRates, IProductComment, IProductRating, IProduct, IProductWithCommentsAndRates } from "../../lib/types.js";
 
 export async function getComment(commentId: number): Promise<{ comment: IProductComment } | null> {
   const comment: [(RowDataPacket & IProductComment)[], FieldPacket[]] = await db.query(
@@ -141,4 +141,20 @@ export async function putRate(productId: number, rate: number, userId: number): 
   // запрашиваем обновленный объект с информацией об оценке
   const updatedRate = await getUserRateOfProduct(productId, userId);
   return updatedRate;
+}
+
+// для allProductsController
+export async function addAvgRatingAndCommentsToProducts(products: IProduct[]): Promise<{ products: IProductWithCommentsAndRates[] }> {
+  const filledProductsArr = products.map(async el => {
+    const avgRating = await getAvgRating(el.id);
+    const comments = await getCommentsWithRates(el.id);
+    const product = { ...el, avgRating, comments };
+    return product;
+  });
+
+  const productsArr = await Promise.all(filledProductsArr).then(arr => arr);
+
+  return {
+    products: productsArr
+  };
 }

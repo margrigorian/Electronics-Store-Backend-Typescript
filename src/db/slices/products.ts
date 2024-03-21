@@ -2,6 +2,10 @@ import db from "../db.js";
 import { FieldPacket, RowDataPacket } from "mysql2/promise";
 import { getAvgRating, getCommentsWithRates, getRates } from "./evaluation.js";
 import {
+  IFeildOfApplicationStructure,
+  ICategoriesStructure,
+  ISubategoriesStructure,
+  ITotalProductsStructure,
   ICategory,
   ICategoryProduct,
   ICategories,
@@ -12,6 +16,30 @@ import {
 } from "../../lib/types.js";
 
 const url: string = "http://localhost:3001/images/";
+
+// FOR ADMIN
+export async function getStructureOfProductCategories(): Promise<ITotalProductsStructure | null> {
+  const feildsOfApplication: [(RowDataPacket & IFeildOfApplicationStructure)[], FieldPacket[]] = await db.query(
+    `SELECT DISTINCT feildOfApplication FROM products`
+  );
+
+  if (feildsOfApplication[0].length > 0) {
+    const categories: [(RowDataPacket & ICategoriesStructure)[], FieldPacket[]] = await db.query(
+      `SELECT category, feildOfApplication AS fromFeildOfApplication FROM products GROUP BY category, feildOfApplication`
+    );
+    const subcategories: [(RowDataPacket & ISubategoriesStructure)[], FieldPacket[]] = await db.query(
+      `SELECT subcategory, category AS fromCategory FROM products GROUP BY subcategory, category`
+    );
+
+    return {
+      feildsOfApplication: feildsOfApplication[0],
+      categories: categories[0],
+      subcategories: subcategories[0]
+    };
+  }
+
+  return null;
+}
 
 export async function getFeildOfApplicationCategories(feildOfApplication: string): Promise<{ categories: ICategories[] } | null> {
   // определяем категории продуктов, относящиеся к указанной области применения
