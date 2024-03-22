@@ -30,6 +30,16 @@ export function validate(action: string) {
           quantity: z.preprocess(a => parseInt(String(a), 10), z.number().nonnegative()), // допускается 0
           price: z.preprocess(a => parseInt(String(a), 10), z.number().positive())
         }),
+        putProduct: z.object({
+          id: z.preprocess(a => parseInt(String(a), 10), z.number().positive()),
+          title: z.union([z.string().min(1), z.literal(""), z.undefined()]),
+          description: z.union([z.string().min(1), z.literal(""), z.undefined()]),
+          feildOfApplication: z.union([z.string().min(1), z.literal(""), z.undefined()]),
+          category: z.union([z.string().min(1), z.literal(""), z.undefined()]),
+          subcategory: z.union([z.string().min(1), z.literal(""), z.undefined()]),
+          quantity: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().nonnegative(), z.literal("")])).optional(),
+          price: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional()
+        }),
         postComment: z.object({
           comment: z.string().min(2).optional()
         }),

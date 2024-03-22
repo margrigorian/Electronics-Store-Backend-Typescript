@@ -12,17 +12,9 @@ const storage = multer.diskStorage({
 
 const types = ["image/png", "image/jpeg", "image/jpg"];
 
-interface MulterFile {
-  fieldname: string;
-  originalname: string;
-  mimetype: string;
-  buffer: Buffer;
-  size: number;
-}
-
-const fileFilter: (req: Request, file: MulterFile, cb: multer.FileFilterCallback) => void = (
+const fileFilter: (req: Request, file: Express.Multer.File, cb: multer.FileFilterCallback) => void = (
   req: Request,
-  file: MulterFile,
+  file: Express.Multer.File,
   cb: multer.FileFilterCallback
 ) => {
   if (types.includes(file.mimetype)) {

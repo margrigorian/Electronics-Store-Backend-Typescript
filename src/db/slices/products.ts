@@ -90,7 +90,7 @@ export async function getProductList(
   page: number,
   limit: number
 ): Promise<IProductListInfo | null> {
-  const filters: (string | number)[] = [];
+  const filters: string[] = [];
   const params: (string | number)[] = [];
 
   if (search) {
@@ -265,6 +265,79 @@ export async function postProduct(
 
   const product = await getProduct(id);
   return product;
+}
+
+export async function updateProduct(
+  id: number,
+  title: string,
+  description: string,
+  image: string,
+  feild: string,
+  category: string,
+  sub: string,
+  quantity: number,
+  price: number
+): Promise<{ product: IProductWithCommentsAndRates } | null> {
+  const product = await getProduct(id);
+
+  if (product) {
+    // если продукта найден, обновляем
+    const filters: string[] = [];
+    const params: (string | number)[] = [];
+
+    if (title) {
+      filters.push("title = ?");
+      params.push(title);
+    }
+
+    if (description) {
+      filters.push("description = ?");
+      params.push(description);
+    }
+
+    if (image) {
+      filters.push("image = ?");
+      params.push(image);
+    }
+
+    if (feild) {
+      filters.push("feildOfApplication = ?");
+      params.push(feild);
+    }
+
+    if (category) {
+      filters.push("category = ?");
+      params.push(category);
+    }
+
+    if (sub) {
+      filters.push("subcategory = ?");
+      params.push(sub);
+    }
+
+    if (quantity) {
+      filters.push("quantity = ?");
+      params.push(quantity);
+    }
+
+    if (price) {
+      filters.push("price = ?");
+      params.push(price);
+    }
+
+    await db.query(
+      `
+              UPDATE products SET ${filters.join(",")}
+              WHERE id="${id}"
+          `,
+      params
+    );
+
+    const updatedProduct = await getProduct(id);
+    return updatedProduct;
+  } else {
+    return null;
+  }
 }
 
 async function getLastProductId(): Promise<number | null> {
