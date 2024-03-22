@@ -224,3 +224,55 @@ export async function getProduct(id: number): Promise<{ product: IProductWithCom
     return null;
   }
 }
+
+export async function checkProductExistence(title: string): Promise<{ product: IProduct } | null> {
+  const product: [(RowDataPacket & IProduct)[], FieldPacket[]] = await db.query(`SELECT * FROM products WHERE title = ?`, [title]);
+
+  if (product[0][0]) {
+    return {
+      product: product[0][0]
+    };
+  } else {
+    return null;
+  }
+}
+
+export async function postProduct(
+  title: string,
+  description: string,
+  image: string,
+  feild: string,
+  category: string,
+  sub: string,
+  quantity: number,
+  price: number
+) {
+  let id = await getLastProductId();
+
+  if (id) {
+    id = id + 1;
+  } else {
+    id = 1; // самый первый продукт
+  }
+
+  await db.query(
+    `
+          INSERT INTO products(id, title, description, image, feildOfApplication, category, subcategory, quantity, price) 
+          VALUES("${id}", ?, ?, "${image}", "${feild}", "${category}", "${sub}", "${quantity}", "${price}")
+      `,
+    [title, description]
+  );
+
+  const product = await getProduct(id);
+  return product;
+}
+
+async function getLastProductId(): Promise<number | null> {
+  const lastId: [(RowDataPacket & { id: number })[], FieldPacket[]] = await db.query("SELECT id FROM products ORDER BY id DESC LIMIT 1");
+
+  if (lastId[0][0]) {
+    return lastId[0][0].id;
+  }
+
+  return null; // записей еще нет
+}

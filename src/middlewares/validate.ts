@@ -19,6 +19,17 @@ export function validate(action: string) {
           email: z.string().email(),
           password: z.string().min(5)
         }),
+        postProduct: z.object({
+          title: z.string().min(1),
+          description: z.string().min(1),
+          // feildOfApplication: z.union([z.literal("smart-home"), z.literal("life-style")]),
+          // нет четкой типизации, так как могут вноситься новые категории товаров
+          feildOfApplication: z.string().min(1),
+          category: z.string().min(1),
+          subcategory: z.string().min(1),
+          quantity: z.preprocess(a => parseInt(String(a), 10), z.number().nonnegative()), // допускается 0
+          price: z.preprocess(a => parseInt(String(a), 10), z.number().positive())
+        }),
         postComment: z.object({
           comment: z.string().min(2).optional()
         }),
