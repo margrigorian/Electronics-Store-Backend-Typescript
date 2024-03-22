@@ -1,19 +1,20 @@
 import { Request, Response } from "express";
 import getResponseTemplate, { IResponse } from "../lib/responseTemplate.js";
-import { getProduct } from "../db/slices/products.js";
+import { deleteProduct } from "../db/slices/products.js";
 
-export async function productController(req: Request, res: Response<IResponse>) {
+export async function deleteProductController(req: Request, res: Response<IResponse>) {
   try {
-    const { productId } = req.body; // добавлено из params во время middleware, будет string
-    const data = await getProduct(+productId);
-
+    const { productId } = req.query;
     const response = getResponseTemplate();
 
-    if (data) {
-      response.data = {
-        data
-      };
-      return res.status(200).json(response);
+    if (productId) {
+      const data = await deleteProduct(+productId);
+      if (data) {
+        response.data = {
+          data
+        };
+        return res.status(200).json(response);
+      }
     }
 
     const message: string = "The product not found"; // в случае неверного id продукта

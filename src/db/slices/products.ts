@@ -340,6 +340,16 @@ export async function updateProduct(
   }
 }
 
+export async function deleteProduct(id: number): Promise<{ product: IProductWithCommentsAndRates } | null> {
+  const product = await getProduct(id);
+
+  if (product) {
+    await db.query(`DELETE FROM products WHERE id = "${id}"`);
+  }
+
+  return product;
+}
+
 async function getLastProductId(): Promise<number | null> {
   const lastId: [(RowDataPacket & { id: number })[], FieldPacket[]] = await db.query("SELECT id FROM products ORDER BY id DESC LIMIT 1");
 
