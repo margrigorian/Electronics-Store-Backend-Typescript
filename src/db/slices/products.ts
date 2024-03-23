@@ -276,7 +276,7 @@ export async function updateProduct(
   category: string,
   sub: string,
   quantity: number,
-  price: number
+  price: number | ""
 ): Promise<{ product: IProductWithCommentsAndRates } | null> {
   const product = await getProduct(id);
 

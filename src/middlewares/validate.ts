@@ -9,6 +9,11 @@ export function validate(action: string) {
         [action: string]: z.ZodSchema; // Dynamic property names with string keys for actions
       }
 
+      const orderSchemas = z.object({
+        productId: z.number().positive(),
+        quantity: z.number().positive()
+      });
+
       const schemas: SchemaMap = {
         registration: z.object({
           username: z.string().min(1),
@@ -39,6 +44,9 @@ export function validate(action: string) {
           subcategory: z.union([z.string().min(1), z.literal(""), z.undefined()]),
           quantity: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().nonnegative(), z.literal("")])).optional(),
           price: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional()
+        }),
+        productsPurchase: z.object({
+          order: z.array(orderSchemas)
         }),
         postComment: z.object({
           comment: z.string().min(2).optional()

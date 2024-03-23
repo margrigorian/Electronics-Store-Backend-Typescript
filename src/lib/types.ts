@@ -126,3 +126,19 @@ export interface ITotalProductsStructure {
 export interface IProductsWithStructure extends IProductListInfo {
   structure: ITotalProductsStructure;
 }
+
+// при purchase
+
+export interface IUserOrderedProduct {
+  productId: number;
+  quantity: number;
+}
+
+export interface IConfirmedOrderedProduct {
+  order_id: number;
+  product_id: number;
+  product_title: string;
+  product_price: number;
+  quantity: number;
+  user_id: number;
+}

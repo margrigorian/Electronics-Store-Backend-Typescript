@@ -16,7 +16,7 @@ export async function putProductController(req: Request, res: Response<IResponse
     price ? (price = +price) : (price = "");
 
     const response = getResponseTemplate();
-    const data = await updateProduct(+id, title, description, image, feildOfApplication, category, subcategory, +quantity, +price);
+    const data = await updateProduct(+id, title, description, image, feildOfApplication, category, subcategory, +quantity, price);
 
     if (data) {
       response.data = {
