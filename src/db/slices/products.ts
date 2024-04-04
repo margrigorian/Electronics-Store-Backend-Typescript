@@ -1,6 +1,6 @@
 import db from "../db.js";
 import { FieldPacket, RowDataPacket } from "mysql2/promise";
-import { getAvgRating, getCommentsWithRates, getRates } from "./evaluation.js";
+import { getCommentsWithRates, getRates } from "./evaluation.js";
 import {
   IFeildOfApplicationStructure,
   ICategoriesStructure,
@@ -10,7 +10,6 @@ import {
   ICategoryProduct,
   ICategories,
   IProduct,
-  IProductWithRate,
   IProductListInfo,
   IProductWithCommentsAndRates
 } from "../../lib/types.js";
@@ -165,9 +164,9 @@ export async function getProductList(
   params.push((page - 1) * limit, limit);
 
   // без category в select выдает ошибку, так как атрибут исп. в фильтрах
-  const products_list: [(RowDataPacket & IProductWithRate)[], FieldPacket[]] = await db.query(
+  const products_list: [(RowDataPacket & IProduct)[], FieldPacket[]] = await db.query(
     `
-          SELECT id, title, description, image, price, quantity, AVG(rate) AS rate, feildOfApplication, category, subcategory FROM products 
+          SELECT id, title, description, image, price, quantity, AVG(rate) AS avgRate, feildOfApplication, category, subcategory FROM products 
           LEFT JOIN product_rating ON products.id = product_rating.product_id
           GROUP BY id
           HAVING ${filters.join(" AND ")}
@@ -186,7 +185,7 @@ export async function getProductList(
   if (products_list[0].length > 0) {
     // Корректна ли проверка? Возможна ли ошибка priceValues при пустом списке?
 
-    const products: IProductWithRate[] = products_list[0].map(el => {
+    const products = products_list[0].map(el => {
       el.image = url + el.image;
       return el;
     });
@@ -203,34 +202,52 @@ export async function getProductList(
   }
 }
 
-export async function getProduct(id: number): Promise<{ product: IProductWithCommentsAndRates } | null> {
-  const data: [(RowDataPacket & IProduct)[], FieldPacket[]] = await db.query(`SELECT * FROM products WHERE id = "${id}"`);
-  // console.log(typeof data[0][0].quantity);
-  if (data[0].length > 0) {
-    // товар с указанным id найден
-    const currentProduct = data[0][0];
-    // коректируем путь к изображению
-    currentProduct.image = url + currentProduct.image;
+export async function checkProductExistence(title: string, productId: number | null): Promise<{ product: IProduct } | null> {
+  let filter: string = "";
+  const params: (string | number)[] = [];
 
-    const avgRating = await getAvgRating(id);
-    const comments = await getCommentsWithRates(id);
-    const rates = await getRates(id);
-    const product = { ...currentProduct, avgRating, comments, rates };
+  if (title) {
+    filter = "title = ?";
+    params.push(title);
+  } else if (productId) {
+    filter = "id = ?";
+    params.push(productId);
+  }
 
+  const product: [(RowDataPacket & IProduct)[], FieldPacket[]] = await db.query(`SELECT * FROM products WHERE ${filter}`, params);
+
+  if (product[0][0]) {
     return {
-      product
+      product: product[0][0]
     };
   } else {
     return null;
   }
 }
 
-export async function checkProductExistence(title: string): Promise<{ product: IProduct } | null> {
-  const product: [(RowDataPacket & IProduct)[], FieldPacket[]] = await db.query(`SELECT * FROM products WHERE title = ?`, [title]);
+export async function getProduct(id: number): Promise<{ product: IProductWithCommentsAndRates } | null> {
+  const productInfo = await checkProductExistence("", id);
 
-  if (product[0][0]) {
+  if (productInfo) {
+    // товар с указанным id найден
+    const data: [(RowDataPacket & IProduct)[], FieldPacket[]] = await db.query(
+      `
+      SELECT p.*, AVG(r.rate) AS avgRate FROM products AS p
+      LEFT JOIN product_rating AS r ON p.id = r.product_id 
+      WHERE p.id = "${id}"
+    `
+    );
+
+    const currentProduct = data[0][0];
+    // коректируем путь к изображению
+    currentProduct.image = url + currentProduct.image;
+
+    const comments = await getCommentsWithRates(id);
+    const rates = await getRates(id);
+    const product = { ...currentProduct, comments, rates };
+
     return {
-      product: product[0][0]
+      product
     };
   } else {
     return null;
@@ -315,7 +332,8 @@ export async function updateProduct(
       params.push(sub);
     }
 
-    if (quantity) {
+    // иначе 0 воспринимается как null
+    if (quantity || quantity === 0) {
       filters.push("quantity = ?");
       params.push(quantity);
     }
@@ -327,9 +345,9 @@ export async function updateProduct(
 
     await db.query(
       `
-              UPDATE products SET ${filters.join(",")}
-              WHERE id="${id}"
-          `,
+        UPDATE products SET ${filters.join(",")}
+        WHERE id="${id}"
+      `,
       params
     );
 

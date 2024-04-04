@@ -66,23 +66,6 @@ export async function getRates(id: number): Promise<IRates[]> {
   return rates[0];
 }
 
-export async function getAvgRating(id: number): Promise<number | null> {
-  const avgRating: [(RowDataPacket & { rate: string })[], FieldPacket[]] = await db.query(
-    `SELECT AVG(rate) AS rate FROM product_rating WHERE product_id = "${id}"`
-  );
-
-  let rate: number | null;
-
-  if (avgRating[0][0].rate) {
-    // оценки присутствуют
-    rate = +avgRating[0][0].rate;
-  } else {
-    rate = null;
-  }
-
-  return rate;
-}
-
 // используется в getProduct
 export async function getCommentsWithRates(id: number): Promise<ICommentsWithRates[]> {
   const comments: [(RowDataPacket & ICommentsWithRates)[], FieldPacket[]] = await db.query(
@@ -144,11 +127,10 @@ export async function putRate(productId: number, rate: number, userId: number): 
 }
 
 // для allProductsController
-export async function addAvgRatingAndCommentsToProducts(products: IProduct[]): Promise<{ products: IProductWithCommentsAndRates[] }> {
+export async function addCommentsToProducts(products: IProduct[]): Promise<{ products: IProductWithCommentsAndRates[] }> {
   const filledProductsArr = products.map(async el => {
-    const avgRating = await getAvgRating(el.id);
     const comments = await getCommentsWithRates(el.id);
-    const product = { ...el, avgRating, comments };
+    const product = { ...el, comments };
     return product;
   });
 

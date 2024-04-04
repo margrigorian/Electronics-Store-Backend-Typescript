@@ -6,7 +6,7 @@ import { feildOfApplicationController } from "../controllers/feildOfApplicationC
 import { productListController } from "../controllers/productListController.js";
 import { searchController } from "../controllers/searchController.js";
 import { productController } from "../controllers/productController.js";
-import { postCommentAndRateController } from "../controllers/postCommentAndRateController.js";
+import { addProductToBasketOrPostCommentAndRateController } from "../controllers/addProductToBasketOrPostCommentAndRateController.js";
 import { putCommentAndRateController } from "../controllers/putCommentAndRateController.js";
 import { deleteCommentController } from "../controllers/deleteCommentController.js";
 
@@ -17,7 +17,13 @@ router.get("/life-style", feildOfApplicationController);
 router.get("/product-list/:category", queriesParamsValidate("productListQueries"), productListController);
 router.get("/search", queriesParamsValidate("searchQueries"), searchController);
 router.get("/product/:id", queriesParamsValidate("productIdParam"), productController);
-router.post("/product/:id", authenticate(), queriesParamsValidate("rateQuery"), validate("postComment"), postCommentAndRateController);
+router.post(
+  "/product/:id",
+  authenticate(),
+  queriesParamsValidate("rateQuery"),
+  validate("postComment"),
+  addProductToBasketOrPostCommentAndRateController
+);
 router.put("/product/:id", authenticate(), queriesParamsValidate("rateQuery"), validate("putComment"), putCommentAndRateController);
 router.delete("/product/:id", authenticate(), queriesParamsValidate("deleteComment"), deleteCommentController);
 

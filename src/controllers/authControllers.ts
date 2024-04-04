@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import getResponseTemplate, { IResponse } from "../lib/responseTemplate.js";
 import { checkUser, addNewUser, getToken } from "../servicing/authService.js";
+import { getProductsFromBasket } from "../db/slices/basket.js";
+import { getOrders } from "../db/slices/orders.js";
 
 export async function userRegistrationController(req: Request, res: Response<IResponse>) {
   try {
@@ -46,10 +48,14 @@ export async function userLoginController(req: Request, res: Response<IResponse>
     if (user) {
       // авторизация прошла успешно, выдаем токен
       const token = getToken(email);
+      const basket = await getProductsFromBasket(+user.id);
+      const orders = await getOrders(+user.id, null);
       message = "Successful authorization! You can continue your session";
       response.data = {
         message,
-        user: { ...user, token }
+        user: { ...user, token },
+        basket,
+        orders
       };
       return res.status(201).json(response);
     }

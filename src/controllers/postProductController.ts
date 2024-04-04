@@ -11,7 +11,7 @@ export async function postProductController(req: Request, res: Response<IRespons
       image = image.slice(7);
     }
 
-    const product = await checkProductExistence(title);
+    const product = await checkProductExistence(title, null);
     const response = getResponseTemplate();
 
     if (product === null) {

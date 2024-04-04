@@ -1,19 +1,20 @@
 import { Request, Response } from "express";
 import getResponseTemplate, { IResponse } from "../lib/responseTemplate.js";
-import { getProduct } from "../db/slices/products.js";
+import { checkProductExistence } from "../db/slices/products.js";
 import { postComment, postRate } from "../db/slices/evaluation.js";
-import { IProductComment, IProductRating } from "../lib/types.js";
+import { checkExistOfProductInBasket, getProductOfBasket, addProductToBasket } from "../db/slices/basket.js";
+import { IProductComment, IProductRating, IBasketProduct } from "../lib/types.js";
 
-export async function postCommentAndRateController(req: Request, res: Response<IResponse>) {
+export async function addProductToBasketOrPostCommentAndRateController(req: Request, res: Response<IResponse>) {
   try {
     const { productId, comment, forUser } = req.body;
     const { rate } = req.query;
     const response = getResponseTemplate();
 
-    const product = await getProduct(productId);
+    const product = await checkProductExistence("", +productId);
 
     if (product) {
-      let data: { comment: IProductComment } | { rate: IProductRating } | null;
+      let data: { comment: IProductComment } | { rate: IProductRating } | { product: IBasketProduct } | null;
 
       if (comment) {
         // post на comment
@@ -22,11 +23,20 @@ export async function postCommentAndRateController(req: Request, res: Response<I
         // post на rate
         data = await postRate(+productId, +rate, forUser.id);
       } else {
-        data = null;
+        // возможно стоит создать упрощенную функцию проверки и не исп. getBasketProduct?
+        const basketProduct = await checkExistOfProductInBasket(+productId);
+
+        if (!basketProduct) {
+          // товар еще не добавлен, добавляем
+          await addProductToBasket(+productId, forUser.id);
+          data = await getProductOfBasket(+productId);
+        } else {
+          data = null;
+        }
       }
 
       if (data) {
-        // продукт существует, комментарий или оценка добавлены
+        // продукт существует, добавлен он или комментарий с оценкой
         response.data = {
           data
         };

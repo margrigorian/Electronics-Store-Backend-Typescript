@@ -46,16 +46,11 @@ export interface IProduct {
   image: string;
   price: number;
   quantity: number;
+  avgRate: string | null;
   feildOfApplication: string;
   category: string;
   subcategory: string;
 }
-
-interface IAvgRate {
-  rate: string | null;
-}
-
-export interface IProductWithRate extends IProduct, IAvgRate {}
 
 export interface IProductListInfo {
   products: IProduct[] | IProductWithCommentsAndRates[]; // второе для allProductsController
@@ -81,7 +76,6 @@ export interface IRates {
 }
 
 export interface IProductWithCommentsAndRates extends IProduct {
-  avgRating: number | null;
   comments: ICommentsWithRates[];
   rates?: IRates[];
 }
@@ -138,7 +132,19 @@ export interface IConfirmedOrderedProduct {
   order_id: number;
   product_id: number;
   product_title: string;
+  product_image: string;
   product_price: number;
   quantity: number;
   user_id: number;
+}
+
+// BASKET
+
+// возможно стоило исп. ICategoryProduct
+export interface IBasketProduct {
+  id: string;
+  title: string;
+  image: string;
+  quantity: number;
+  price: number;
 }

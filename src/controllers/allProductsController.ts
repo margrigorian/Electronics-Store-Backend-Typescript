@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import getResponseTemplate, { IResponse } from "../lib/responseTemplate.js";
 import { getStructureOfProductCategories, getProductList } from "../db/slices/products.js";
-import { addAvgRatingAndCommentsToProducts } from "../db/slices/evaluation.js";
+import { addCommentsToProducts } from "../db/slices/evaluation.js";
 import { IProductsWithStructure, ITotalProductsStructure } from "../lib/types.js";
 
 export async function allProductsController(req: Request, res: Response<IResponse>) {
@@ -36,7 +36,7 @@ export async function allProductsController(req: Request, res: Response<IRespons
       // получаем productsList с доп. инфорамцией
       // при search может быть null, поэтому необходима проверка
       if (productsList) {
-        const productListWithAdditionalInfo = await addAvgRatingAndCommentsToProducts(productsList.products);
+        const productListWithAdditionalInfo = await addCommentsToProducts(productsList.products);
         // заменяем изначальный productsList
         productsList.products = productListWithAdditionalInfo.products;
 
