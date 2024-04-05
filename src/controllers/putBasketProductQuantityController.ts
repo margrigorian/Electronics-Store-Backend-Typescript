@@ -1,23 +1,22 @@
 import { Request, Response } from "express";
 import getResponseTemplate, { IResponse } from "../lib/responseTemplate.js";
-import { postOrder } from "../db/slices/orders.js";
+import { updateBasketProductQuantity } from "../db/slices/basket.js";
 
-export async function productsPurchaseController(req: Request, res: Response<IResponse>) {
+export async function putBasketProductQuantityController(req: Request, res: Response<IResponse>) {
   try {
-    const { order, forUser } = req.body;
+    const { productId, quantity, forUser } = req.body;
     const response = getResponseTemplate();
 
-    const data = await postOrder(order, forUser.id);
+    const data = await updateBasketProductQuantity(productId, quantity, forUser.id);
 
-    if (data.order.length > 0) {
+    if (data) {
       response.data = {
         data
       };
       return res.status(201).json(response);
     }
 
-    // id продуктов в заказе неверные или же заказанные товары отсутвуют "на складе" (quantity = 0)
-    const message: string = "400 Bad Request";
+    const message: string = "400 Bad Request"; // в случае неверного id или несоответствия кол-ва товара
     response.error = {
       message
     };

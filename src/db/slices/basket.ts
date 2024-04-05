@@ -1,10 +1,11 @@
 import db from "../db.js";
 import { FieldPacket, RowDataPacket } from "mysql2/promise";
 import { IBasketProduct } from "../../lib/types.js";
+import { getProduct } from "./products.js";
 
-export async function checkExistOfProductInBasket(productId: number): Promise<boolean> {
+export async function checkExistOfProductInBasket(productId: number, userId: number): Promise<boolean> {
   const data: [(RowDataPacket & { product_id: number })[], FieldPacket[]] = await db.query(
-    `SELECT product_id FROM basket WHERE product_id = "${productId}"`
+    `SELECT * FROM basket WHERE product_id = "${productId}" AND user_id = "${userId}"`
   );
 
   if (data[0][0]) {
@@ -54,6 +55,26 @@ export async function addProductToBasket(productId: number, userId: number): Pro
 
   const product = await getProductOfBasket(productId);
   return product;
+}
+
+export async function updateBasketProductQuantity(productId: number, quantity: number, userId: number): Promise<{ product: IBasketProduct } | null> {
+  const productExistenceInBasket = await checkExistOfProductInBasket(productId, userId);
+
+  // товар присутствует в basket
+  if (productExistenceInBasket) {
+    const productInfo = await getProduct(productId);
+    // количество запрашиваемого товара соответстует имеющемуся "на складе"
+    if (productInfo && productInfo.product.quantity >= quantity) {
+      await db.query(
+        `UPDATE basket SET quantity = "${quantity}" 
+        WHERE product_id = "${productId}" AND user_id = "${userId}"`
+      );
+      const product = await getProductOfBasket(productId);
+      return product;
+    }
+  }
+
+  return null;
 }
 
 export async function deleteProductFromBasket(productId: number): Promise<{ product: IBasketProduct } | null> {

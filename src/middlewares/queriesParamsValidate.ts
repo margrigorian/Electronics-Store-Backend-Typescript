@@ -11,7 +11,7 @@ export function queriesParamsValidate(action: string) {
       }
 
       const schemas: SchemaMap = {
-        productListQueries: z.object({
+        productListQueryParams: z.object({
           // .optional предполагает undefined, NaN и null - нет
           subcategory: z.string().optional(),
           // допустила number, "", undefined; в случае NaN случится ошибка (например, при "text")
@@ -22,7 +22,7 @@ export function queriesParamsValidate(action: string) {
           limit: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional()
           // лишние query-параметры не препятсвуют запросу
         }),
-        searchQueries: z.object({
+        searchQueryParams: z.object({
           q: z.string().optional(),
           subcategory: z.string().optional(),
           // допустила number, "", undefined; в случае NaN случится ошибка (например, при "text")
@@ -35,13 +35,13 @@ export function queriesParamsValidate(action: string) {
         productIdParam: z.object({
           productId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()) // проверка id из params
         }),
-        rateQuery: z.object({
+        rateQueryParam: z.object({
           productId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()), // проверка id из params
           rate: z.preprocess(a => parseInt(String(a), 10), z.number().min(1).max(5)).optional()
         }),
-        deleteComment: z.object({
+        queryParamsOfDeletedComment: z.object({
           productId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()), // проверка id из params
-          commentId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()) // отправлено через req.body
+          commentId: z.preprocess(a => parseInt(String(a), 10), z.number().positive())
         })
       };
 

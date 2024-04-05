@@ -23,7 +23,7 @@ export async function postOrder(userOrder: IUserOrderedProduct[], userId: number
 
   const orderedProducts = userOrder.map(async el => {
     const productInfo = await getProduct(el.productId); // продукт есть и его количество > 0
-    const productExistence = await checkExistOfProductInBasket(el.productId); // продукт добавлен в корзину
+    const productExistence = await checkExistOfProductInBasket(el.productId, userId); // user добавлял продукт в корзину
 
     if (productInfo && productInfo.product.quantity > 0 && productExistence) {
       // товар есть и его общее количество на "складе" > 0

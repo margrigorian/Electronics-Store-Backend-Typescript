@@ -10,7 +10,7 @@ import { deleteProductController } from "../controllers/deleteProductController.
 
 const router: Router = express.Router();
 
-router.get("/edit-page", authenticate(true), queriesParamsValidate("searchQueries"), allProductsController);
+router.get("/edit-page", authenticate(true), queriesParamsValidate("searchQueryParams"), allProductsController);
 router.post("/edit-page", authenticate(true), upload.single("image"), validate("postProduct"), postProductController);
 router.put("/edit-page", authenticate(true), upload.single("image"), validate("putProduct"), putProductController);
 router.delete("/edit-page", authenticate(true), queriesParamsValidate("productIdParam"), deleteProductController);

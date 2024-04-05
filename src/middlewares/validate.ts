@@ -9,7 +9,7 @@ export function validate(action: string) {
         [action: string]: z.ZodSchema; // Dynamic property names with string keys for actions
       }
 
-      const orderSchemas = z.object({
+      const orderSchema = z.object({
         productId: z.number().positive(),
         quantity: z.number().positive()
       });
@@ -46,7 +46,7 @@ export function validate(action: string) {
           price: z.preprocess(a => (a === "" ? a : parseInt(String(a), 10)), z.union([z.number().positive(), z.literal("")])).optional()
         }),
         productsPurchase: z.object({
-          order: z.array(orderSchemas)
+          order: z.array(orderSchema)
         }),
         postComment: z.object({
           comment: z.string().min(2).optional()
@@ -55,6 +55,10 @@ export function validate(action: string) {
           productId: z.preprocess(a => parseInt(String(a), 10), z.number().positive()), // проверка id из params
           commentId: z.number().positive().optional(),
           comment: z.string().min(2).optional()
+        }),
+        putBasketProductQuantity: z.object({
+          productId: z.number().positive(),
+          quantity: z.number().positive()
         })
       };
 

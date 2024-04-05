@@ -24,7 +24,7 @@ export async function addProductToBasketOrPostCommentAndRateController(req: Requ
         data = await postRate(+productId, +rate, forUser.id);
       } else {
         // возможно стоит создать упрощенную функцию проверки и не исп. getBasketProduct?
-        const basketProduct = await checkExistOfProductInBasket(+productId);
+        const basketProduct = await checkExistOfProductInBasket(+productId, forUser.id);
 
         if (!basketProduct) {
           // товар еще не добавлен, добавляем

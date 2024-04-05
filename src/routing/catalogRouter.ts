@@ -14,17 +14,17 @@ const router: Router = experss.Router();
 
 router.get("/smart-home", feildOfApplicationController);
 router.get("/life-style", feildOfApplicationController);
-router.get("/product-list/:category", queriesParamsValidate("productListQueries"), productListController);
-router.get("/search", queriesParamsValidate("searchQueries"), searchController);
+router.get("/product-list/:category", queriesParamsValidate("productListQueryParams"), productListController);
+router.get("/search", queriesParamsValidate("searchQueryParams"), searchController);
 router.get("/product/:id", queriesParamsValidate("productIdParam"), productController);
 router.post(
   "/product/:id",
   authenticate(),
-  queriesParamsValidate("rateQuery"),
+  queriesParamsValidate("rateQueryParam"),
   validate("postComment"),
   addProductToBasketOrPostCommentAndRateController
 );
-router.put("/product/:id", authenticate(), queriesParamsValidate("rateQuery"), validate("putComment"), putCommentAndRateController);
-router.delete("/product/:id", authenticate(), queriesParamsValidate("deleteComment"), deleteCommentController);
+router.put("/product/:id", authenticate(), queriesParamsValidate("rateQueryParam"), validate("putComment"), putCommentAndRateController);
+router.delete("/product/:id", authenticate(), queriesParamsValidate("queryParamsOfDeletedComment"), deleteCommentController);
 
 export default router;
