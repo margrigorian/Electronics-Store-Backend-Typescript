@@ -15,6 +15,7 @@ export async function getOrders(userId: number, orderId: number | null): Promise
       SELECT * FROM orders WHERE user_id = ${userId} ${orderingCondition}
     `
   );
+
   return data[0];
 }
 
@@ -35,7 +36,7 @@ export async function postOrder(userOrder: IUserOrderedProduct[], userId: number
         // обновляем количество оставшегося товара в базе
 
         await updateProduct(product.id, "", "", "", "", "", "", quantity, "");
-        await deleteProductFromBasket(product.id);
+        await deleteProductFromBasket(product.id, userId);
 
         // заменила общее количество на заказанное юзером, чтобы легче выстраивать объекты order ниже
         product.quantity = el.quantity;

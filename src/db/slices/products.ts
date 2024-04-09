@@ -58,7 +58,7 @@ export async function getFeildOfApplicationCategories(feildOfApplication: string
       // корректируем url изображения
 
       const edited_products: ICategoryProduct[] = products[0].map(el => {
-        el.image = url + el.image;
+        el.image = getFullPathToImage(el.image);
         return el;
       });
 
@@ -186,7 +186,7 @@ export async function getProductList(
     // Корректна ли проверка? Возможна ли ошибка priceValues при пустом списке?
 
     const products = products_list[0].map(el => {
-      el.image = url + el.image;
+      el.image = getFullPathToImage(el.image);
       return el;
     });
 
@@ -240,7 +240,7 @@ export async function getProduct(id: number): Promise<{ product: IProductWithCom
 
     const currentProduct = data[0][0];
     // коректируем путь к изображению
-    currentProduct.image = url + currentProduct.image;
+    currentProduct.image = getFullPathToImage(currentProduct.image);
 
     const comments = await getCommentsWithRates(id);
     const rates = await getRates(id);
@@ -376,4 +376,8 @@ async function getLastProductId(): Promise<number | null> {
   }
 
   return null; // записей еще нет
+}
+
+export function getFullPathToImage(image: string) {
+  return url + image;
 }

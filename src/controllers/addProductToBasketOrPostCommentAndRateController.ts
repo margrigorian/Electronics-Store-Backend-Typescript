@@ -29,7 +29,7 @@ export async function addProductToBasketOrPostCommentAndRateController(req: Requ
         if (!basketProduct) {
           // товар еще не добавлен, добавляем
           await addProductToBasket(+productId, forUser.id);
-          data = await getProductOfBasket(+productId);
+          data = await getProductOfBasket(+productId, forUser.id);
         } else {
           data = null;
         }

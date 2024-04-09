@@ -142,9 +142,10 @@ export interface IConfirmedOrderedProduct {
 
 // возможно стоило исп. ICategoryProduct
 export interface IBasketProduct {
-  id: string;
+  id: number;
   title: string;
   image: string;
-  quantity: number;
+  orderedQuantity: number;
+  availableQuantity: number;
   price: number;
 }
