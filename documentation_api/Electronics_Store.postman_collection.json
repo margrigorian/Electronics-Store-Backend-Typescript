@@ -1,0 +1,7017 @@
+{
+	"info": {
+		"_postman_id": "b5c0a072-a656-4862-bddd-251a01ce988a",
+		"name": "Electronics Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27575894"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Vera\",\r\n    \"email\" : \"v@gmail.com\",\r\n    \"password\" : \"45678\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/authentication/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"authentication",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Vera\",\r\n    \"email\" : \"v@gmail.com\",\r\n    \"password\" : \"45678\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/authentication/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"authentication",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7e-Btojft2zYj9e4NhHu3IwxcKgtls\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 12:10:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"Successful registration! Please login\",\n        \"newUser\": {\n            \"id\": 4,\n            \"username\": \"Vera\",\n            \"status\": \"user\"\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "406 (incorrect data)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Vera\",\r\n    \"email\" : \"vgmail.com\",\r\n    \"password\" : \"23456\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/authentication/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"authentication",
+										"register"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 14:55:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "406 (invalid data, user exists)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Rita\",\r\n    \"email\" : \"r@gmail.com\",\r\n    \"password\" : \"23456\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/authentication/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"authentication",
+										"register"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-+yEgeSZQRMty8iAVS2E/q5DykQ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 14:57:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"User login already exists\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"m@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/authentication/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"authentication",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"m@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/authentication/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"authentication",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "312"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"138-Lk5yAVM6t32UJ5LRTSawjmJd0as\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 12:02:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"Successful authorization! You can continue your session\",\n        \"user\": {\n            \"id\": 1,\n            \"username\": \"Marine\",\n            \"status\": \"admin\",\n            \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA4Njg5NzM2LCJleHAiOjE3MDg3MzI5MzZ9.0L_7w-vFaYyr35OY45WCl2_qvCAzqWWdB4kWQzGggiY\"\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "406 (incorrent data)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"rgmail.com\",\r\n    \"password\": \"23456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/authentication/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"authentication",
+										"login"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:06:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "406 (invalid email / password)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"r@gmail.com\",\r\n    \"password\": \"234560000\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/authentication/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"authentication",
+										"login"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-SlUf/JBj7CLL+8GVRo5VU+neti4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:07:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The user's email address or passward is invalid\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product Catalog",
+			"item": [
+				{
+					"name": "Get Field of Application Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/catalog/life-style/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"catalog",
+								"life-style",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/life-style/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"life-style",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "689"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b1-zYmGFbhqZP9dVdnTAdbb9vpLzGk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 16:44:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"categories\": [\n                {\n                    \"category\": \"office\",\n                    \"products\": [\n                        {\n                            \"id\": 1,\n                            \"title\": \"Xiaomi Book 14\",\n                            \"image\": \"http://localhost:3001/images/1706807696748-1.png\",\n                            \"price\": 886\n                        },\n                        {\n                            \"id\": 2,\n                            \"title\": \"RedmiBook 15\",\n                            \"image\": \"http://localhost:3001/images/2.jpg\",\n                            \"price\": 681\n                        },\n                        {\n                            \"id\": 3,\n                            \"title\": \"Xiaomi Pad 6\",\n                            \"image\": \"http://localhost:3001/images/3.jpg\",\n                            \"price\": 454\n                        }\n                    ]\n                },\n                {\n                    \"category\": \"wearable\",\n                    \"products\": [\n                        {\n                            \"id\": 9,\n                            \"title\": \"Xiaomi Watch 2 Pro\",\n                            \"image\": \"http://localhost:3001/images/9.jpg\",\n                            \"price\": 295\n                        },\n                        {\n                            \"id\": 10,\n                            \"title\": \"Xiaomi Watch S1 Pro\",\n                            \"image\": \"http://localhost:3001/images/10.png\",\n                            \"price\": 284\n                        },\n                        {\n                            \"id\": 11,\n                            \"title\": \"Xiaomi Watch S1\",\n                            \"image\": \"http://localhost:3001/images/11.png\",\n                            \"price\": 198\n                        }\n                    ]\n                }\n            ]\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "404 (not found categories)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/life-style/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"life-style",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "501"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f5-4NZXnky3ZeLig0qVbrvLLlrQpiY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:17:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"categories\": [\n                {\n                    \"category\": \"office\",\n                    \"products\": [\n                        {\n                            \"id\": 1,\n                            \"title\": \"Xiaomi Book 14\",\n                            \"image\": \"1.png\",\n                            \"price\": 886\n                        },\n                        {\n                            \"id\": 2,\n                            \"title\": \"RedmiBook 15\",\n                            \"image\": \"2.jpg\",\n                            \"price\": 681\n                        },\n                        {\n                            \"id\": 3,\n                            \"title\": \"Xiaomi Pad 6\",\n                            \"image\": \"3.jpg\",\n                            \"price\": 454\n                        }\n                    ]\n                },\n                {\n                    \"category\": \"wearable\",\n                    \"products\": [\n                        {\n                            \"id\": 9,\n                            \"title\": \"Xiaomi Watch 2 Pro\",\n                            \"image\": \"9.jpg\",\n                            \"price\": 295\n                        },\n                        {\n                            \"id\": 10,\n                            \"title\": \"Xiaomi Watch S1 Pro\",\n                            \"image\": \"10.png\",\n                            \"price\": 284\n                        },\n                        {\n                            \"id\": 11,\n                            \"title\": \"Xiaomi Watch S1\",\n                            \"image\": \"11.png\",\n                            \"price\": 198\n                        }\n                    ]\n                }\n            ]\n        }\n    },\n    \"error\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Category Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/catalog/product-list/:category?subcategory=watch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"catalog",
+								"product-list",
+								":category"
+							],
+							"query": [
+								{
+									"key": "subcategory",
+									"value": "watch"
+								},
+								{
+									"key": "minPrice",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "290",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "asc",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "category",
+									"value": "wearable"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product-list/:category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product-list",
+										":category"
+									],
+									"query": [
+										{
+											"key": "subcategory",
+											"value": "watch",
+											"disabled": true
+										},
+										{
+											"key": "minPrice",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "maxPrice",
+											"value": "290",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "office"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1784"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6f8-+ccK+Q2ujx6vYE76ebjm0dIKY30\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 16:45:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"products\": [\n                {\n                    \"id\": 1,\n                    \"title\": \"Xiaomi Book 14\",\n                    \"description\": \"2880x1800, IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home\",\n                    \"image\": \"http://localhost:3001/images/1706807696748-1.png\",\n                    \"price\": 886,\n                    \"quantity\": 10,\n                    \"rate\": \"4.0000\",\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"office\",\n                    \"subcategory\": \"laptop\"\n                },\n                {\n                    \"id\": 2,\n                    \"title\": \"RedmiBook 15\",\n                    \"description\": \"Full HD (1920x1080), TN+film, Intel Core i5-11320H, ядра: 4 х 2.5 ГГц, RAM 8 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home\",\n                    \"image\": \"http://localhost:3001/images/2.jpg\",\n                    \"price\": 681,\n                    \"quantity\": 10,\n                    \"rate\": \"3.3333\",\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"office\",\n                    \"subcategory\": \"laptop\"\n                },\n                {\n                    \"id\": 3,\n                    \"title\": \"Xiaomi Pad 6\",\n                    \"description\": \"2880x1800, IPS, 8x3.2 ГГц, 8 ГБ, 8840 мА*ч, Android 13.x\",\n                    \"image\": \"http://localhost:3001/images/3.jpg\",\n                    \"price\": 454,\n                    \"quantity\": 15,\n                    \"rate\": \"3.0000\",\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"office\",\n                    \"subcategory\": \"tablet\"\n                },\n                {\n                    \"id\": 4,\n                    \"title\": \"Xiaomi Pad 5\",\n                    \"description\": \"2560x1600, IPS, 8x2.96 ГГц, 6 ГБ, 8720 мА*ч, Android 11.x\",\n                    \"image\": \"http://localhost:3001/images/4.png\",\n                    \"price\": 367,\n                    \"quantity\": 15,\n                    \"rate\": \"5.0000\",\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"office\",\n                    \"subcategory\": \"tablet\"\n                },\n                {\n                    \"id\": 5,\n                    \"title\": \"Xiaomi Gaming Monitor G27i\",\n                    \"description\": \"1920x1080 (FullHD)@165 Гц, IPS, LED, 1 мс, 1000:1, 250 Кд/м², 178°/178°, DisplayPort 1.2, HDMI 2.0, AMD FreeSync Premium\",\n                    \"image\": \"http://localhost:3001/images/5.png\",\n                    \"price\": 170,\n                    \"quantity\": 12,\n                    \"rate\": \"5.0000\",\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"office\",\n                    \"subcategory\": \"monitor\"\n                }\n            ],\n            \"subcategories\": [\n                \"laptop\",\n                \"tablet\",\n                \"monitor\",\n                \"router\",\n                \"other\"\n            ],\n            \"priceMin\": 20,\n            \"priceMax\": 886,\n            \"length\": 9\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "406 (inccorect data)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product-list/:category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product-list",
+										":category"
+									],
+									"query": [
+										{
+											"key": "subcategory",
+											"value": "watch",
+											"disabled": true
+										},
+										{
+											"key": "minPrice",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "maxPrice",
+											"value": "290",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "another"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:26:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "404 (products not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product-list/:category?subcategory=watch",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product-list",
+										":category"
+									],
+									"query": [
+										{
+											"key": "subcategory",
+											"value": "watch"
+										},
+										{
+											"key": "minPrice",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "maxPrice",
+											"value": "290",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "asc",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "office"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-CIEf9lV8A1yOuaAvgA6DZszf848\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:29:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"404 NOT FOUND\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Search Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/catalog/search?q=s&subcategory=watch&maxPrice=200&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"catalog",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "s"
+								},
+								{
+									"key": "subcategory",
+									"value": "watch"
+								},
+								{
+									"key": "minPrice",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "maxPrice",
+									"value": "200"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/search?q=s&subcategory=watch&maxPrice=200&order=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "s"
+										},
+										{
+											"key": "subcategory",
+											"value": "watch"
+										},
+										{
+											"key": "minPrice",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "maxPrice",
+											"value": "200"
+										},
+										{
+											"key": "order",
+											"value": "asc"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "779"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30b-RhEKHH8CjSkOhzCypiaXvIMZClI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Mar 2024 15:48:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"products\": [\n                {\n                    \"id\": 12,\n                    \"title\": \"Xiaomi Watch S1 Active\",\n                    \"description\": \"1.43\\\", AMOLED, 466x466, Bluetooth, NFC, Wi-Fi, для Android 6.0 и выше, iOS 10 и выше\",\n                    \"image\": \"http://localhost:3001/images/12.png\",\n                    \"price\": 168,\n                    \"quantity\": 8,\n                    \"rate\": null,\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"wearable\",\n                    \"subcategory\": \"watch\"\n                },\n                {\n                    \"id\": 11,\n                    \"title\": \"Xiaomi Watch S1\",\n                    \"description\": \"1.43\\\", AMOLED, 466x466, Bluetooth, Wi-Fi, для Android 6.0 и выше, iOS 10 и выше\",\n                    \"image\": \"http://localhost:3001/images/11.png\",\n                    \"price\": 198,\n                    \"quantity\": 10,\n                    \"rate\": null,\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"wearable\",\n                    \"subcategory\": \"watch\"\n                }\n            ],\n            \"subcategories\": [\n                \"monitor\",\n                \"watch\",\n                \"headphones\",\n                \"kettle\",\n                \"other\"\n            ],\n            \"priceMin\": 168,\n            \"priceMax\": 284,\n            \"length\": 2\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "404 (products not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/search?q=q&subcategory=watch&page=199",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"search"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "q"
+										},
+										{
+											"key": "subcategory",
+											"value": "watch"
+										},
+										{
+											"key": "page",
+											"value": "199"
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-CIEf9lV8A1yOuaAvgA6DZszf848\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:41:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"404 NOT FOUND\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/catalog/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"catalog",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "533"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"215-pRVihj8EWZIdmILnFTZ1c/3+w/Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 16:48:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"product\": {\n                \"id\": 3,\n                \"title\": \"Xiaomi Pad 6\",\n                \"description\": \"2880x1800, IPS, 8x3.2 ГГц, 8 ГБ, 8840 мА*ч, Android 13.x\",\n                \"image\": \"http://localhost:3001/images/3.jpg\",\n                \"feildOfApplication\": \"life-style\",\n                \"category\": \"office\",\n                \"subcategory\": \"tablet\",\n                \"quantity\": 15,\n                \"price\": 454,\n                \"avgRating\": 3,\n                \"comments\": [\n                    {\n                        \"comment_id\": 3,\n                        \"comment\": \"Bad\",\n                        \"rate\": 1,\n                        \"user_id\": 1,\n                        \"username\": \"Marine\"\n                    },\n                    {\n                        \"comment_id\": 9,\n                        \"comment\": \"Like\",\n                        \"rate\": 5,\n                        \"user_id\": 2,\n                        \"username\": \"Rita\"\n                    }\n                ],\n                \"rates\": [\n                    {\n                        \"user_id\": 1,\n                        \"rate\": 1\n                    },\n                    {\n                        \"user_id\": 2,\n                        \"rate\": 5\n                    }\n                ]\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "406 (incorrect product id)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "v1"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:45:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "404 (product not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "303"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-3IRPdctRZwajHmoncdUkK0AFrGY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:46:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The product not found\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get All Products List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzExMDQxMjQ5LCJleHAiOjE3MTEwODQ0NDl9.ZD36AMMSFresQlKCJYajxHwOuHC11xtQ4pe1ZTgYRVA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/admin/edit-page?subcategory=watch&minPrice=200&order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"edit-page"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "smart",
+									"disabled": true
+								},
+								{
+									"key": "subcategory",
+									"value": "watch"
+								},
+								{
+									"key": "minPrice",
+									"value": "200"
+								},
+								{
+									"key": "maxPrice",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzExMDQxMjQ5LCJleHAiOjE3MTEwODQ0NDl9.ZD36AMMSFresQlKCJYajxHwOuHC11xtQ4pe1ZTgYRVA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/admin/edit-page?subcategory=watch&minPrice=200&order=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"admin",
+										"edit-page"
+									],
+									"query": [
+										{
+											"key": "q",
+											"value": "smart",
+											"disabled": true
+										},
+										{
+											"key": "subcategory",
+											"value": "watch"
+										},
+										{
+											"key": "minPrice",
+											"value": "200"
+										},
+										{
+											"key": "maxPrice",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "asc"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "5",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1575"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"627-kAye7w8Vrb2j2xmNBgyhqdida9M\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Mar 2024 17:52:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"structure\": {\n                \"feildsOfApplication\": [\n                    {\n                        \"feildOfApplication\": \"life-style\"\n                    },\n                    {\n                        \"feildOfApplication\": \"smart-home\"\n                    }\n                ],\n                \"categories\": [\n                    {\n                        \"category\": \"office\",\n                        \"fromFeildOfApplication\": \"life-style\"\n                    },\n                    {\n                        \"category\": \"wearable\",\n                        \"fromFeildOfApplication\": \"life-style\"\n                    },\n                    {\n                        \"category\": \"kitchen appliance\",\n                        \"fromFeildOfApplication\": \"smart-home\"\n                    }\n                ],\n                \"subcategories\": [\n                    {\n                        \"subcategory\": \"laptop\",\n                        \"fromCategory\": \"office\"\n                    },\n                    {\n                        \"subcategory\": \"tablet\",\n                        \"fromCategory\": \"office\"\n                    },\n                    {\n                        \"subcategory\": \"monitor\",\n                        \"fromCategory\": \"office\"\n                    },\n                    {\n                        \"subcategory\": \"router\",\n                        \"fromCategory\": \"office\"\n                    },\n                    {\n                        \"subcategory\": \"other\",\n                        \"fromCategory\": \"office\"\n                    },\n                    {\n                        \"subcategory\": \"watch\",\n                        \"fromCategory\": \"wearable\"\n                    },\n                    {\n                        \"subcategory\": \"headphones\",\n                        \"fromCategory\": \"wearable\"\n                    },\n                    {\n                        \"subcategory\": \"kettle\",\n                        \"fromCategory\": \"kitchen appliance\"\n                    }\n                ]\n            },\n            \"products\": [\n                {\n                    \"id\": 10,\n                    \"title\": \"Xiaomi Watch S1 Pro\",\n                    \"description\": \"1.47\\\", AMOLED, 480x480, Bluetooth, NFC, для Android 6.0 и выше, iOS 11 и выше\",\n                    \"image\": \"http://localhost:3001/images/10.png\",\n                    \"price\": 284,\n                    \"quantity\": 10,\n                    \"rate\": null,\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"wearable\",\n                    \"subcategory\": \"watch\",\n                    \"avgRating\": null,\n                    \"comments\": []\n                },\n                {\n                    \"id\": 9,\n                    \"title\": \"Xiaomi Watch 2 Pro\",\n                    \"description\": \"1.43\\\", AMOLED, 466x466, Bluetooth, Wi-Fi, для Android, iOS\",\n                    \"image\": \"http://localhost:3001/images/9.jpg\",\n                    \"price\": 295,\n                    \"quantity\": 10,\n                    \"rate\": null,\n                    \"feildOfApplication\": \"life-style\",\n                    \"category\": \"wearable\",\n                    \"subcategory\": \"watch\",\n                    \"avgRating\": null,\n                    \"comments\": []\n                }\n            ],\n            \"subcategories\": [\n                \"laptop\",\n                \"tablet\",\n                \"monitor\",\n                \"router\",\n                \"watch\",\n                \"headphones\",\n                \"kettle\",\n                \"other\"\n            ],\n            \"priceMin\": 168,\n            \"priceMax\": 295,\n            \"length\": 2\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2MDM1MzcyLCJleHAiOjE3MDYwNzg1NzJ9.tI6hRSoCcS1ocXKPp-vIrB66eopC7bQQGOEEpj7gjZQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 15:50:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "403 Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ0ODA3LCJleHAiOjE3MDY1ODgwMDd9.YcVjgebKMFeUlJ4cZe1ubA-jy_xTyGJCaaNSrk7OkZg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-WMUtrE5tMaCA12FhI8os8rUXpDU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 16:14:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"403 Forbidden\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect data)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ1OTU4LCJleHAiOjE3MDY1ODkxNTh9.BF5PHS8epIFxza9pYyTOIhxZ1C70geCtzQPvRSNr3Rg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/account/admin?page=v1&limit=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "v1"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 16:45:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "404 (products not found)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ1OTU4LCJleHAiOjE3MDY1ODkxNTh9.BF5PHS8epIFxza9pYyTOIhxZ1C70geCtzQPvRSNr3Rg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/account/admin?page=100&limit=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "100"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-CIEf9lV8A1yOuaAvgA6DZszf848\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 16:49:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"404 NOT FOUND\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzExMTk5MTkwLCJleHAiOjE3MTEyNDIzOTB9.MoUbls2IDSkksRmoPSlyM-zXn2mJXpCBvCCMoJBx_P4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Xiaomi Router AX3200",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "3 LAN, 1000 Мбит/с, 4 (802.11n), 5 (802.11ac), 6 (802.11ax), Wi-Fi 3202 Мбит/с, IPv6",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Desktop/Node/NODE_COURSE/EXAM/shop/upload/18.png"
+								},
+								{
+									"key": "feildOfApplication",
+									"value": "life-style",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "office",
+									"type": "text"
+								},
+								{
+									"key": "subcategory",
+									"value": "router",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "76",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/account/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"account",
+								"admin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Xiaomi Electric Glass Kettle",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "1.7 Liters Large Capacity, 5 Minutes Boil with 2200W high power output, LED light display, Heating indicator, Wi-Fi IEEE 802.11b/g/n 2,4 ГГц",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/sun.jpg"
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "kitchen appliance",
+											"type": "text"
+										},
+										{
+											"key": "subcategory",
+											"value": "kettle",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "135",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "425"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a9-dOTaCpy6ghlQX5W76nCPSB6HgBw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 20 Jan 2024 17:23:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"product\": {\n                \"id\": 16,\n                \"title\": \"Xiaomi Electric Glass Kettle\",\n                \"description\": \"1.7 Liters Large Capacity, 5 Minutes Boil with 2200W high power output, LED light display, Heating indicator, Wi-Fi IEEE 802.11b/g/n 2,4 ГГц\",\n                \"image\": \"1705771402331-sun.jpg\",\n                \"feildOfApplication\": \"smart-home\",\n                \"category\": \"kitchen appliance\",\n                \"subcategory\": \"kettle\",\n                \"quantity\": 20,\n                \"price\": 135,\n                \"rating\": null,\n                \"comments\": []\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA1OTE1Nzc4LCJleHAiOjE3MDU5NTg5Nzh9.usJDPwwCOzib_UxgycKwo7pfV5vo551gJcGb-u6yIck",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Xiaomi Electric Glass Kettle",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "1.7 Liters Large Capacity, 5 Minutes Boil with 2200W high power output, LED light display, Heating indicator, Wi-Fi IEEE 802.11b/g/n 2,4 ГГц",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/Node/Node_Course/exam/shop/upload/1.png"
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "kitchen appliance",
+											"type": "text"
+										},
+										{
+											"key": "subcategory",
+											"value": "kettle",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "135",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:25:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "403 Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTUyODE0LCJleHAiOjE3MDY1OTYwMTR9.nOTIdo1tCAlm8fOhkaCyvXQJEeDGfQo8TkHkejJuxO8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Xiaomi Electric Glass Kettle",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "1.7 Liters Large Capacity, 5 Minutes Boil with 2200W high power output, LED light display, Heating indicator, Wi-Fi IEEE 802.11b/g/n 2,4 ГГц",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/Node/Node_Course/exam/shop/upload/1.png"
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "kitchen appliance",
+											"type": "text"
+										},
+										{
+											"key": "subcategory",
+											"value": "kettle",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "135",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-WMUtrE5tMaCA12FhI8os8rUXpDU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:27:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"403 Forbidden\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect data)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ1OTU4LCJleHAiOjE3MDY1ODkxNTh9.BF5PHS8epIFxza9pYyTOIhxZ1C70geCtzQPvRSNr3Rg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Xiaomi Electric Glass Kettle",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "1.7 Liters Large Capacity, 5 Minutes Boil with 2200W high power output, LED light display, Heating indicator, Wi-Fi IEEE 802.11b/g/n 2,4 ГГц",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/Node/Node_Course/exam/shop/upload/1.png"
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "kitchen appliance",
+											"type": "text"
+										},
+										{
+											"key": "subcategory",
+											"value": "kettle",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "135",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:29:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "406 (product exists)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ1OTU4LCJleHAiOjE3MDY1ODkxNTh9.BF5PHS8epIFxza9pYyTOIhxZ1C70geCtzQPvRSNr3Rg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Xiaomi Electric Glass Kettle",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "1.7 Liters Large Capacity, 5 Minutes Boil with 2200W high power output, LED light display, Heating indicator, Wi-Fi IEEE 802.11b/g/n 2,4 ГГц",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/sun.jpg"
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "kitchen appliance",
+											"type": "text"
+										},
+										{
+											"key": "subcategory",
+											"value": "kettle",
+											"type": "text"
+										},
+										{
+											"key": "quantity",
+											"value": "20",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "135",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"58-HyIFSd5Cc3iUVzPH4nV6udB9IbM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:35:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The product already exists. Change the product title\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzExMDk4ODY2LCJleHAiOjE3MTExNDIwNjZ9.vkt0XNb7lwJd2Rm3H8AGGf84Op6v6bynZEiA30VYRDs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Xiaomi Book 14",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "2880x1800, IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Desktop/Node/NODE_COURSE/EXAM/shop/upload/1.png"
+								},
+								{
+									"key": "feildOfApplication",
+									"value": "life-style",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "office",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "subcategory",
+									"value": "laptop",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "quantity",
+									"value": "35",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "price",
+									"value": "886",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/admin/edit-page",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"edit-page"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA4NzA3MDE3LCJleHAiOjE3MDg3NTAyMTd9.TwzFRzQvhxTQrUIMgtkpYpTKMdEdbyb1kL84wqFhiPc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "17",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Xiaomi Book 14",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "description",
+											"value": "2880x1800, IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/Node/NODE_COURSE/EXAM/shop/upload/1.png",
+											"disabled": true
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "wearable",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "subcategory",
+											"value": "tablet",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "885",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "346"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15a-lFybrTCf5S4K7KBxSC4XojoaeQo\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 17:03:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"product\": {\n                \"id\": 17,\n                \"title\": \"Xiaomi TV A Pro 55\",\n                \"description\": \"Quad-core A55 CPU, Mali G52 GPU, large 2GB + 16GB memory\",\n                \"image\": \"http://localhost:3001/images/17.png\",\n                \"feildOfApplication\": \"life-style\",\n                \"category\": \"office\",\n                \"subcategory\": \"monitor\",\n                \"quantity\": 30,\n                \"price\": 514,\n                \"avgRating\": null,\n                \"comments\": [],\n                \"rates\": []\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA1OTE1Nzc4LCJleHAiOjE3MDU5NTg5Nzh9.usJDPwwCOzib_UxgycKwo7pfV5vo551gJcGb-u6yIck",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Xiaomi Book 14",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "2880x1800, IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/Node/Node_Course/exam/shop/upload/1.png",
+											"disabled": true
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "wearable",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "subcategory",
+											"value": "tablet",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "11",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "885",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:42:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "403 Forbidden",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTUzODExLCJleHAiOjE3MDY1OTcwMTF9.B5V1xyHdDJ0TJFElbqb9hf2OWxuDRrDcslwbhSxgHp8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Xiaomi Book 14",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "2880x1800, IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/Node/Node_Course/exam/shop/upload/1.png",
+											"disabled": true
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "wearable",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "subcategory",
+											"value": "tablet",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "11",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "885",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-WMUtrE5tMaCA12FhI8os8rUXpDU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:43:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"403 Forbidden\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect data)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ1OTU4LCJleHAiOjE3MDY1ODkxNTh9.BF5PHS8epIFxza9pYyTOIhxZ1C70geCtzQPvRSNr3Rg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "v1",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Xiaomi Book 14",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "2880x1800, IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/Node/Node_Course/exam/shop/upload/1.png",
+											"disabled": true
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "wearable",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "subcategory",
+											"value": "tablet",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "11",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "885",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:47:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "404 (product not found, wrong id)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ1OTU4LCJleHAiOjE3MDY1ODkxNTh9.BF5PHS8epIFxza9pYyTOIhxZ1C70geCtzQPvRSNr3Rg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "202",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Xiaomi Book 14",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "2880x1800, IPS, Intel Core i5-12500H, ядра: 4 + 8 х 2.5 ГГц, RAM 16 ГБ, SSD 512 ГБ, Intel Iris Xe Graphics , Windows 11 Home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/User/Desktop/Node/Node_Course/exam/shop/upload/1.png",
+											"disabled": true
+										},
+										{
+											"key": "feildOfApplication",
+											"value": "smart-home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "wearable",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "subcategory",
+											"value": "tablet",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "quantity",
+											"value": "11",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "885",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-3IRPdctRZwajHmoncdUkK0AFrGY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:49:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The product not found\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzExMDk4ODY2LCJleHAiOjE3MTExNDIwNjZ9.vkt0XNb7lwJd2Rm3H8AGGf84Op6v6bynZEiA30VYRDs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/admin/edit-page?productId=18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"edit-page"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA4NjcwNTEwLCJleHAiOjE3MDg3MTM3MTB9.18tIeAjAOAl6H_b47Xi1u2_4NSiAH7MbUstmWTmm4pE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/account/admin?productId=18",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "18"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "398"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18e-0P4w4FPUR+HW5DfNBPWoSERHBH8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 23 Feb 2024 17:05:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"product\": {\n                \"id\": 18,\n                \"title\": \"Xiaomi Router AX3200\",\n                \"description\": \"3 LAN, 1000 Мбит/с, 4 (802.11n), 5 (802.11ac), 6 (802.11ax), Wi-Fi 3202 Мбит/с, IPv6\",\n                \"image\": \"http://localhost:3001/images/1708707909413-18.png\",\n                \"feildOfApplication\": \"life-style\",\n                \"category\": \"office\",\n                \"subcategory\": \"router\",\n                \"quantity\": 10,\n                \"price\": 76,\n                \"avgRating\": null,\n                \"comments\": [],\n                \"rates\": []\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA1OTE1Nzc4LCJleHAiOjE3MDU5NTg5Nzh9.usJDPwwCOzib_UxgycKwo7pfV5vo551gJcGb-u6yIck",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 16\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:44:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "403 Forbidden",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTUzODExLCJleHAiOjE3MDY1OTcwMTF9.B5V1xyHdDJ0TJFElbqb9hf2OWxuDRrDcslwbhSxgHp8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 16\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-WMUtrE5tMaCA12FhI8os8rUXpDU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:45:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"403 Forbidden\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect data)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ1OTU4LCJleHAiOjE3MDY1ODkxNTh9.BF5PHS8epIFxza9pYyTOIhxZ1C70geCtzQPvRSNr3Rg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"16\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:48:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "404 (product not found, wrong id)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2NTQ1OTU4LCJleHAiOjE3MDY1ODkxNTh9.BF5PHS8epIFxza9pYyTOIhxZ1C70geCtzQPvRSNr3Rg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 202\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"admin"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-3IRPdctRZwajHmoncdUkK0AFrGY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:51:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The product not found\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Basket",
+			"item": [
+				{
+					"name": "Add Product to Basket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/catalog/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"catalog",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMTE1MjU5LCJleHAiOjE3MTIxNTg0NTl9.gKmctMw3iy_7X-I1W9gMpSbiaLTjFXD1HjwcCyEtERY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"73-4tBjbUuYp5Ksjd/1S49eRybuosM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 04:19:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"product\": {\n                \"id\": 2,\n                \"title\": \"RedmiBook 15\",\n                \"image\": \"2.jpg\",\n                \"quantity\": 1,\n                \"price\": 681\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMTE1MjU5LCJleHAiOjE3MTIxNTg0NTl9.gKmctMw3iy_7X-I1W9gMpSbiaLTjFXD1HjwcCyEtERY",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 04:21:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect product id)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMTE1MjU5LCJleHAiOjE3MTIxNTg0NTl9.gKmctMw3iy_7X-I1W9gMpSbiaLTjFXD1HjwcCyEtERY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "t"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 14:37:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "400 (wrong product id)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMTE1MjU5LCJleHAiOjE3MTIxNTg0NTl9.gKmctMw3iy_7X-I1W9gMpSbiaLTjFXD1HjwcCyEtERY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "200"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 11:25:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						},
+						{
+							"name": "400 (product exist)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMTE1MjU5LCJleHAiOjE3MTIxNTg0NTl9.gKmctMw3iy_7X-I1W9gMpSbiaLTjFXD1HjwcCyEtERY",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Apr 2024 04:20:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Products Basket",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/user/basket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"basket"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/user/basket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "700"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2bc-9gvqsEFlgpBLvmjiB3Oi7+YJE9Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:39:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"basket\": [\n            {\n                \"id\": 3,\n                \"title\": \"Xiaomi Pad 6\",\n                \"image\": \"3.jpg\",\n                \"quantity\": 1,\n                \"price\": 454\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Xiaomi Pad 5\",\n                \"image\": \"4.png\",\n                \"quantity\": 1,\n                \"price\": 367\n            }\n        ],\n        \"orders\": [\n            {\n                \"order_id\": 1,\n                \"product_id\": 1,\n                \"product_title\": \"Xiaomi Book 14\",\n                \"product_image\": \"http://localhost:3001/images/1711101168604-1.png\",\n                \"product_price\": 886,\n                \"quantity\": 1,\n                \"user_id\": 2\n            },\n            {\n                \"order_id\": 1,\n                \"product_id\": 2,\n                \"product_title\": \"RedmiBook 15\",\n                \"product_image\": \"http://localhost:3001/images/2.jpg\",\n                \"product_price\": 681,\n                \"quantity\": 1,\n                \"user_id\": 2\n            },\n            {\n                \"order_id\": 2,\n                \"product_id\": 1,\n                \"product_title\": \"Xiaomi Book 14\",\n                \"product_image\": \"http://localhost:3001/images/1711101168604-1.png\",\n                \"product_price\": 886,\n                \"quantity\": 5,\n                \"user_id\": 2\n            }\n        ]\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/user/basket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:41:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Quantity of Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": 1,\r\n    \"quantity\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/user/basket?productId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"basket"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": 1,\r\n    \"quantity\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/user/basket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"83-gKvd4mzSNmCWTn88l1Del26gVuw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 09:16:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"product\": {\n                \"id\": 1,\n                \"title\": \"Xiaomi Book 14\",\n                \"image\": \"1711101168604-1.png\",\n                \"quantity\": 1,\n                \"price\": 886\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": 1,\r\n    \"quantity\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/user/basket?productId=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:43:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect product id or quantity)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": \"1\",\r\n    \"quantity\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/user/basket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 09:31:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "400 (wrong product id)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": 2,\r\n    \"quantity\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/user/basket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 09:30:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						},
+						{
+							"name": "400 (wrong product quantity)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"productId\": 1,\r\n    \"quantity\": 50\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/user/basket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 09:30:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove Product from Basket",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/user/basket?productId=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"basket"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/user/basket?productId=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "115"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"73-a7l4hSaGuR02Bab4came5w9Q6LM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:43:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"product\": {\n                \"id\": 3,\n                \"title\": \"Xiaomi Pad 6\",\n                \"image\": \"3.jpg\",\n                \"quantity\": 1,\n                \"price\": 454\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/user/basket?productId=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:45:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect data)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/user/basket?product=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:46:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "404 (product not found, wrong id)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/user/basket?productId=30",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-3IRPdctRZwajHmoncdUkK0AFrGY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:45:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The product not found\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Purchase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 5\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/user/basket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"basket"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2MDc4OTkzLCJleHAiOjE3MDYxMjIxOTN9.UWiObNvTny7RT2mHYvFDTCBaQYCeLKk6YGGRcQiIPVQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"productId\": 2,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "256"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"100-z0YZlPd/MddY9Ss9XjfU6P/UbBM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jan 2024 17:17:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"order\": [\n                {\n                    \"order_id\": 1,\n                    \"product_id\": 1,\n                    \"product_title\": \"Xiaomi Book 14\",\n                    \"product_price\": 886,\n                    \"quantity\": 1,\n                    \"user_id\": 2\n                },\n                {\n                    \"order_id\": 2,\n                    \"product_id\": 2,\n                    \"product_title\": \"RedmiBook 15\",\n                    \"product_price\": 681,\n                    \"quantity\": 1,\n                    \"user_id\": 2\n                }\n            ]\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2MTk3NTc1LCJleHAiOjE3MDYyNDA3NzV9.omq137W7rXwxbygdL1xvhIcTe9tXBoWBFvCszs84toY",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"productId\": 2,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"user"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 10:16:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect data)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order\": [\r\n        {\r\n            \"productId\": \"1\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"productId\": \"2\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"user"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 10:18:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "406 (wrong product id or products are out of stock )",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order\": [\r\n        {\r\n            \"productId\": 90,\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"productId\": 95,\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/account/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"account",
+										"user"
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 10:19:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comment and Rate",
+			"item": [
+				{
+					"name": "Add Comment or Rate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEwNzYxMjYxLCJleHAiOjE3MTA4MDQ0NjF9.Xi1URwBxUT2sswT-GGIKnfZJBnBo3J9J2usNfc2Zqyc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"Favorite\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/catalog/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"catalog",
+								"product",
+								":id"
+							],
+							"query": [
+								{
+									"key": "rate",
+									"value": "5",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA3NTA5MDc4LCJleHAiOjE3MDc1NTIyNzh9.oeE8qmd5Sdn-vpkPEgYXGN1jlRME4d_D6LbWaJDpb_k",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment\": \"Favorite\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b-RBYBqCS7/aZGO4k/bw8RSi2Y/sc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 09 Feb 2024 20:05:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"comment\": {\n                \"product_id\": 2,\n                \"comment_id\": 8,\n                \"comment\": \"Favorite\",\n                \"user_id\": 2\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "successful rate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2MDA4MjkzLCJleHAiOjE3MDYwNTE0OTN9.yH--evJHy3AImZ7vv1s-8PGNtd_aHeXgvMlJFYxZIs4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id?rate=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "3"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-WwayIrgzoxa8CjSb+24NGLQ7q2A\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Jan 2024 11:12:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"rate\": {\n                \"product_id\": 6,\n                \"rate\": 3,\n                \"user_id\": 1\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2MDA4MjkzLCJleHAiOjE3MDYwNTE0OTN9.yH--evJHy3AImZ7vv1s-8PGNtd_aHeXgvMlJFYxZIs4",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id?rate=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "2"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:53:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrrect rate)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTU0NTUyLCJleHAiOjE3MDY1OTc3NTJ9.KpgvK4s-cv1rxLuukqOmqeYcDaVp4U9wBmrL6drF0ZA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id?rate=7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "7"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 18:56:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect comment)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTU0NTUyLCJleHAiOjE3MDY1OTc3NTJ9.KpgvK4s-cv1rxLuukqOmqeYcDaVp4U9wBmrL6drF0ZA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment\": 123\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "7",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 19:06:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "400 (wrong product id)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTU0NTUyLCJleHAiOjE3MDY1OTc3NTJ9.KpgvK4s-cv1rxLuukqOmqeYcDaVp4U9wBmrL6drF0ZA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment\": \"I like it\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "7",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "300"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 19:08:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						},
+						{
+							"name": "400 (rate exists)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTU0NTUyLCJleHAiOjE3MDY1OTc3NTJ9.KpgvK4s-cv1rxLuukqOmqeYcDaVp4U9wBmrL6drF0ZA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id?rate=4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "4"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 20:07:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Comment or Rate",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEwODQxODYzLCJleHAiOjE3MTA4ODUwNjN9.Bz54sq5myRGI9ZaMIkeuARTSEmfeV2cw4IQh9uCQ50Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentId\": 10,\r\n    \"comment\": \"Favorite\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/catalog/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"catalog",
+								"product",
+								":id"
+							],
+							"query": [
+								{
+									"key": "rate",
+									"value": "5",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successful comment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2MDA4MjkzLCJleHAiOjE3MDYwNTE0OTN9.yH--evJHy3AImZ7vv1s-8PGNtd_aHeXgvMlJFYxZIs4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentId\": 4,\r\n    \"comment\": \"Gooooood\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6b-CWh1XSaJ+470oOfm4Q+fbOrv440\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Jan 2024 13:12:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"comment\": {\n                \"product_id\": 1,\n                \"comment_id\": 4,\n                \"comment\": \"Gooooood\",\n                \"user_id\": 1\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "successful rate",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2MDA4MjkzLCJleHAiOjE3MDYwNTE0OTN9.yH--evJHy3AImZ7vv1s-8PGNtd_aHeXgvMlJFYxZIs4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id?rate=3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "3"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-CFXcWWtXMp6cz3kLQTEjUihWiFI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 Jan 2024 13:29:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"rate\": {\n                \"product_id\": 4,\n                \"rate\": 3,\n                \"user_id\": 1\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2MDA4MjkzLCJleHAiOjE3MDYwNTE0OTN9.yH--evJHy3AImZ7vv1s-8PGNtd_aHeXgvMlJFYxZIs4",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id?rate=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "5"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 19:41:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect rate)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTU0NTUyLCJleHAiOjE3MDY1OTc3NTJ9.KpgvK4s-cv1rxLuukqOmqeYcDaVp4U9wBmrL6drF0ZA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id?rate=0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "0"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 19:44:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "406 (incorrect comment)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NTU0NTUyLCJleHAiOjE3MDY1OTc3NTJ9.KpgvK4s-cv1rxLuukqOmqeYcDaVp4U9wBmrL6drF0ZA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment\" : 123\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "7",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-SKvVuQAAmzKr434YHtOeEs1gUQA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 19:43:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The sent data is incorrect\"\n    }\n}"
+						},
+						{
+							"name": "400 (product not found, wrong product id)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"comment\" : \"New comment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "7",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "90"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 08:37:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						},
+						{
+							"name": "400 (comment not found, wrong comment id)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentId\": 65,\r\n    \"comment\" : \"New comment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "7",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 08:54:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						},
+						{
+							"name": "400 (the comment is not from this product)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentId\": 5,\r\n    \"comment\" : \"New comment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "7",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 09:03:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						},
+						{
+							"name": "403 Forbidden (not your comment)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentId\": 4,\r\n    \"comment\" : \"New comment\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "7",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-WMUtrE5tMaCA12FhI8os8rUXpDU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 09:16:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"403 Forbidden\"\n    }\n}"
+						},
+						{
+							"name": "400 (there isn't a rate from user, should be a post request, not put)",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id?rate=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"query": [
+										{
+											"key": "rate",
+											"value": "5"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-jH5iReugJqU4LC+BOvk/Ftkto8E\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 09:19:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"commentId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/catalog/product/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"catalog",
+								"product",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA1OTE1Nzc4LCJleHAiOjE3MDU5NTg5Nzh9.usJDPwwCOzib_UxgycKwo7pfV5vo551gJcGb-u6yIck",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentId\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "111"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6f-HJymYNcP/GrWDnwfOGTfdbrxkiI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Jan 2024 16:22:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"comment\": {\n                \"product_id\": 1,\n                \"comment_id\": 1,\n                \"comment\": \"Good product\",\n                \"user_id\": 1\n            }\n        }\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1AZ21haWwuY29tIiwiaWF0IjoxNzA2MDA4MjkzLCJleHAiOjE3MDYwNTE0OTN9.yH--evJHy3AImZ7vv1s-8PGNtd_aHeXgvMlJFYxZIs4",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentId\" : 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 10:02:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						},
+						{
+							"name": "404 (comment not found, product id is unimportant)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentId\" : 35\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-kcE8FcdDqzhRTI6/ZjiUBWW4cpY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 10:05:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The comment not found\"\n    }\n}"
+						},
+						{
+							"name": "403 Forbidden (you aren't admin, it's not your comment)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzA2NjAzNzk1LCJleHAiOjE3MDY2NDY5OTV9._egn9Nd-8L6s5OEn6qGN-uWbQOIYrak_ziw39wTiJBU",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commentId\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/catalog/product/:id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"catalog",
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"31-WMUtrE5tMaCA12FhI8os8rUXpDU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 10:10:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"403 Forbidden\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
