@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import cors from "cors";
 import path from "path";
+import homeRouter from "./routing/homeRouter.js";
 import authRouter from "./routing/authRouter.js";
 import catalogRouter from "./routing/catalogRouter.js";
 import adminRouter from "./routing/adminRouter.js";
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/images", express.static(path.join(currentFolderPath, "images"))); // постоянное исп. папки images
 
+app.use("/", homeRouter);
 app.use("/authentication", authRouter);
 app.use("/catalog", catalogRouter);
 app.use("/admin", adminRouter);

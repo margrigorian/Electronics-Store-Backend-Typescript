@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b5c0a072-a656-4862-bddd-251a01ce988a",
-		"name": "Electronics Store",
+		"name": "Electronics_Store",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "27575894"
 	},
@@ -468,6 +468,88 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"The user's email address or passward is invalid\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Home Page Products",
+			"item": [
+				{
+					"name": "Get Popular Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "514"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"202-rHazamhXrbGcft6F6JdOJkTCnzg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 May 2025 09:30:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"data\": {\n            \"products\": [\n                {\n                    \"id\": 7,\n                    \"title\": \"Mi Router 4C (White)\",\n                    \"image\": \"http://localhost:3001/images/7.png\",\n                    \"price\": 20,\n                    \"avgRate\": \"5.0000\"\n                },\n                {\n                    \"id\": 4,\n                    \"title\": \"Xiaomi Pad 5\",\n                    \"image\": \"http://localhost:3001/images/4.png\",\n                    \"price\": 367,\n                    \"avgRate\": \"5.0000\"\n                },\n                {\n                    \"id\": 5,\n                    \"title\": \"Xiaomi Gaming Monitor G27i\",\n                    \"image\": \"http://localhost:3001/images/5.png\",\n                    \"price\": 170,\n                    \"avgRate\": \"5.0000\"\n                },\n                {\n                    \"id\": 1,\n                    \"title\": \"Xiaomi Book 14\",\n                    \"image\": \"http://localhost:3001/images/1711101168604-1.png\",\n                    \"price\": 886,\n                    \"avgRate\": \"4.0000\"\n                }\n            ]\n        }\n    },\n    \"error\": null\n}"
 						}
 					]
 				}
@@ -3555,6 +3637,162 @@
 			"name": "Basket",
 			"item": [
 				{
+					"name": "Get Products Basket",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/user/basket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"user",
+								"basket"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/user/basket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "700"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2bc-9gvqsEFlgpBLvmjiB3Oi7+YJE9Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:39:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"basket\": [\n            {\n                \"id\": 3,\n                \"title\": \"Xiaomi Pad 6\",\n                \"image\": \"3.jpg\",\n                \"quantity\": 1,\n                \"price\": 454\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Xiaomi Pad 5\",\n                \"image\": \"4.png\",\n                \"quantity\": 1,\n                \"price\": 367\n            }\n        ],\n        \"orders\": [\n            {\n                \"order_id\": 1,\n                \"product_id\": 1,\n                \"product_title\": \"Xiaomi Book 14\",\n                \"product_image\": \"http://localhost:3001/images/1711101168604-1.png\",\n                \"product_price\": 886,\n                \"quantity\": 1,\n                \"user_id\": 2\n            },\n            {\n                \"order_id\": 1,\n                \"product_id\": 2,\n                \"product_title\": \"RedmiBook 15\",\n                \"product_image\": \"http://localhost:3001/images/2.jpg\",\n                \"product_price\": 681,\n                \"quantity\": 1,\n                \"user_id\": 2\n            },\n            {\n                \"order_id\": 2,\n                \"product_id\": 1,\n                \"product_title\": \"Xiaomi Book 14\",\n                \"product_image\": \"http://localhost:3001/images/1711101168604-1.png\",\n                \"product_price\": 886,\n                \"quantity\": 5,\n                \"user_id\": 2\n            }\n        ]\n    },\n    \"error\": null\n}"
+						},
+						{
+							"name": "401 Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/user/basket",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"user",
+										"basket"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 05 Apr 2024 11:41:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "Add Product to Basket",
 					"request": {
 						"method": "POST",
@@ -3941,162 +4179,6 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"400 Bad Request\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Get Products Basket",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:3001/user/basket",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3001",
-							"path": [
-								"user",
-								"basket"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "http://localhost:3001/user/basket",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"user",
-										"basket"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "700"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2bc-9gvqsEFlgpBLvmjiB3Oi7+YJE9Q\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 05 Apr 2024 11:39:27 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"basket\": [\n            {\n                \"id\": 3,\n                \"title\": \"Xiaomi Pad 6\",\n                \"image\": \"3.jpg\",\n                \"quantity\": 1,\n                \"price\": 454\n            },\n            {\n                \"id\": 4,\n                \"title\": \"Xiaomi Pad 5\",\n                \"image\": \"4.png\",\n                \"quantity\": 1,\n                \"price\": 367\n            }\n        ],\n        \"orders\": [\n            {\n                \"order_id\": 1,\n                \"product_id\": 1,\n                \"product_title\": \"Xiaomi Book 14\",\n                \"product_image\": \"http://localhost:3001/images/1711101168604-1.png\",\n                \"product_price\": 886,\n                \"quantity\": 1,\n                \"user_id\": 2\n            },\n            {\n                \"order_id\": 1,\n                \"product_id\": 2,\n                \"product_title\": \"RedmiBook 15\",\n                \"product_image\": \"http://localhost:3001/images/2.jpg\",\n                \"product_price\": 681,\n                \"quantity\": 1,\n                \"user_id\": 2\n            },\n            {\n                \"order_id\": 2,\n                \"product_id\": 1,\n                \"product_title\": \"Xiaomi Book 14\",\n                \"product_image\": \"http://localhost:3001/images/1711101168604-1.png\",\n                \"product_price\": 886,\n                \"quantity\": 5,\n                \"user_id\": 2\n            }\n        ]\n    },\n    \"error\": null\n}"
-						},
-						{
-							"name": "401 Unauthorized",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJAZ21haWwuY29tIiwiaWF0IjoxNzEyMzA4MjUyLCJleHAiOjE3MTIzNTE0NTJ9.ady_-DSUIGt0fVqYvbfw1OoDKf1rnw9MN9nKagx0qMo",
-										"type": "text",
-										"disabled": true
-									}
-								],
-								"url": {
-									"raw": "http://localhost:3001/user/basket",
-									"protocol": "http",
-									"host": [
-										"localhost"
-									],
-									"port": "3001",
-									"path": [
-										"user",
-										"basket"
-									]
-								}
-							},
-							"status": "Unauthorized",
-							"code": 401,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "52"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"34-o3HBr3GYBsfxNp/JEupl2qouwZ0\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 05 Apr 2024 11:41:48 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"data\": null,\n    \"error\": {\n        \"message\": \"401 Unauthorized\"\n    }\n}"
 						}
 					]
 				},

@@ -16,6 +16,29 @@ import {
 
 const url: string = "http://localhost:3001/images/";
 
+// HOME PAGE
+
+export async function getPopularProducts(): Promise<{ products: ICategory[] }> {
+  const products: [(RowDataPacket & ICategory)[], FieldPacket[]] = await db.query(
+    `
+      SELECT id, title, image, price, AVG(rate) AS avgRate FROM products
+      LEFT JOIN product_rating ON products.id = product_rating.product_id
+      GROUP BY id
+      ORDER BY avgRate DESC
+      LIMIT 4
+    `
+  );
+
+  const productsWithFullPathToImages = products[0].map(el => {
+    el.image = getFullPathToImage(el.image);
+    return el;
+  });
+
+  return {
+    products: productsWithFullPathToImages
+  };
+}
+
 // FOR ADMIN
 export async function getStructureOfProductCategories(): Promise<ITotalProductsStructure | null> {
   const feildsOfApplication: [(RowDataPacket & IFeildOfApplicationStructure)[], FieldPacket[]] = await db.query(
